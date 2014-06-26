@@ -22,6 +22,23 @@
 		65BD60E0195C734800EBF3BB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BD60BF195C734700EBF3BB /* UIKit.framework */; };
 		65BD60E8195C734800EBF3BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65BD60E6195C734800EBF3BB /* InfoPlist.strings */; };
 		65BD60EA195C734800EBF3BB /* fuzzy_octo_archerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BD60E9195C734800EBF3BB /* fuzzy_octo_archerTests.m */; };
+		65BD60F9195C73CD00EBF3BB /* RecipeSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BD60F6195C73CD00EBF3BB /* RecipeSegmentControl.m */; };
+		65BD60FA195C73CD00EBF3BB /* SegmentButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BD60F8195C73CD00EBF3BB /* SegmentButtonView.m */; };
+		65BD610A195C73E300EBF3BB /* bg_pattern_wood.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BD60FC195C73E300EBF3BB /* bg_pattern_wood.png */; };
+		65BD610B195C73E300EBF3BB /* bg_pattern_wood@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BD60FD195C73E300EBF3BB /* bg_pattern_wood@2x.png */; };
+		65BD610C195C73E300EBF3BB /* recipe_tab_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BD60FE195C73E300EBF3BB /* recipe_tab_1.png */; };
+		65BD610D195C73E300EBF3BB /* recipe_tab_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BD60FF195C73E300EBF3BB /* recipe_tab_1@2x.png */; };
+		65BD610E195C73E300EBF3BB /* recipe_tab_1_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BD6100195C73E300EBF3BB /* recipe_tab_1_active.png */; };
+		65BD610F195C73E300EBF3BB /* recipe_tab_1_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BD6101195C73E300EBF3BB /* recipe_tab_1_active@2x.png */; };
+		65BD6110195C73E300EBF3BB /* recipe_tab_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BD6102195C73E300EBF3BB /* recipe_tab_2.png */; };
+		65BD6111195C73E300EBF3BB /* recipe_tab_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BD6103195C73E300EBF3BB /* recipe_tab_2@2x.png */; };
+		65BD6112195C73E300EBF3BB /* recipe_tab_2_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BD6104195C73E300EBF3BB /* recipe_tab_2_active.png */; };
+		65BD6113195C73E300EBF3BB /* recipe_tab_2_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BD6105195C73E300EBF3BB /* recipe_tab_2_active@2x.png */; };
+		65BD6114195C73E300EBF3BB /* recipe_tab_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BD6106195C73E300EBF3BB /* recipe_tab_3.png */; };
+		65BD6115195C73E300EBF3BB /* recipe_tab_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BD6107195C73E300EBF3BB /* recipe_tab_3@2x.png */; };
+		65BD6116195C73E300EBF3BB /* recipe_tab_3_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BD6108195C73E300EBF3BB /* recipe_tab_3_active.png */; };
+		65BD6117195C73E300EBF3BB /* recipe_tab_3_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BD6109195C73E300EBF3BB /* recipe_tab_3_active@2x.png */; };
+		65BD611A195C756C00EBF3BB /* FOANavigationNar.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BD6119195C756C00EBF3BB /* FOANavigationNar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +72,26 @@
 		65BD60E5195C734800EBF3BB /* fuzzy-octo-archerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "fuzzy-octo-archerTests-Info.plist"; sourceTree = "<group>"; };
 		65BD60E7195C734800EBF3BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		65BD60E9195C734800EBF3BB /* fuzzy_octo_archerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fuzzy_octo_archerTests.m; sourceTree = "<group>"; };
+		65BD60F5195C73CD00EBF3BB /* RecipeSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeSegmentControl.h; sourceTree = "<group>"; };
+		65BD60F6195C73CD00EBF3BB /* RecipeSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeSegmentControl.m; sourceTree = "<group>"; };
+		65BD60F7195C73CD00EBF3BB /* SegmentButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentButtonView.h; sourceTree = "<group>"; };
+		65BD60F8195C73CD00EBF3BB /* SegmentButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentButtonView.m; sourceTree = "<group>"; };
+		65BD60FC195C73E300EBF3BB /* bg_pattern_wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_pattern_wood.png; sourceTree = "<group>"; };
+		65BD60FD195C73E300EBF3BB /* bg_pattern_wood@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_pattern_wood@2x.png"; sourceTree = "<group>"; };
+		65BD60FE195C73E300EBF3BB /* recipe_tab_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recipe_tab_1.png; sourceTree = "<group>"; };
+		65BD60FF195C73E300EBF3BB /* recipe_tab_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recipe_tab_1@2x.png"; sourceTree = "<group>"; };
+		65BD6100195C73E300EBF3BB /* recipe_tab_1_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recipe_tab_1_active.png; sourceTree = "<group>"; };
+		65BD6101195C73E300EBF3BB /* recipe_tab_1_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recipe_tab_1_active@2x.png"; sourceTree = "<group>"; };
+		65BD6102195C73E300EBF3BB /* recipe_tab_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recipe_tab_2.png; sourceTree = "<group>"; };
+		65BD6103195C73E300EBF3BB /* recipe_tab_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recipe_tab_2@2x.png"; sourceTree = "<group>"; };
+		65BD6104195C73E300EBF3BB /* recipe_tab_2_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recipe_tab_2_active.png; sourceTree = "<group>"; };
+		65BD6105195C73E300EBF3BB /* recipe_tab_2_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recipe_tab_2_active@2x.png"; sourceTree = "<group>"; };
+		65BD6106195C73E300EBF3BB /* recipe_tab_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recipe_tab_3.png; sourceTree = "<group>"; };
+		65BD6107195C73E300EBF3BB /* recipe_tab_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recipe_tab_3@2x.png"; sourceTree = "<group>"; };
+		65BD6108195C73E300EBF3BB /* recipe_tab_3_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recipe_tab_3_active.png; sourceTree = "<group>"; };
+		65BD6109195C73E300EBF3BB /* recipe_tab_3_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recipe_tab_3_active@2x.png"; sourceTree = "<group>"; };
+		65BD6118195C756C00EBF3BB /* FOANavigationNar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOANavigationNar.h; sourceTree = "<group>"; };
+		65BD6119195C756C00EBF3BB /* FOANavigationNar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOANavigationNar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,12 +151,16 @@
 		65BD60C1195C734700EBF3BB /* fuzzy-octo-archer */ = {
 			isa = PBXGroup;
 			children = (
+				65BD60FB195C73E300EBF3BB /* Resources */,
+				65BD60F4195C73CD00EBF3BB /* RecipeSegmentControl */,
 				65BD60CA195C734700EBF3BB /* FOAAppDelegate.h */,
 				65BD60CB195C734700EBF3BB /* FOAAppDelegate.m */,
 				65BD60CD195C734700EBF3BB /* Main_iPhone.storyboard */,
 				65BD60D0195C734700EBF3BB /* Main_iPad.storyboard */,
 				65BD60D3195C734700EBF3BB /* FOAViewController.h */,
 				65BD60D4195C734700EBF3BB /* FOAViewController.m */,
+				65BD6118195C756C00EBF3BB /* FOANavigationNar.h */,
+				65BD6119195C756C00EBF3BB /* FOANavigationNar.m */,
 				65BD60D6195C734700EBF3BB /* Images.xcassets */,
 				65BD60C2195C734700EBF3BB /* Supporting Files */,
 			);
@@ -153,6 +194,38 @@
 				65BD60E6195C734800EBF3BB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		65BD60F4195C73CD00EBF3BB /* RecipeSegmentControl */ = {
+			isa = PBXGroup;
+			children = (
+				65BD60F5195C73CD00EBF3BB /* RecipeSegmentControl.h */,
+				65BD60F6195C73CD00EBF3BB /* RecipeSegmentControl.m */,
+				65BD60F7195C73CD00EBF3BB /* SegmentButtonView.h */,
+				65BD60F8195C73CD00EBF3BB /* SegmentButtonView.m */,
+			);
+			path = RecipeSegmentControl;
+			sourceTree = "<group>";
+		};
+		65BD60FB195C73E300EBF3BB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				65BD60FC195C73E300EBF3BB /* bg_pattern_wood.png */,
+				65BD60FD195C73E300EBF3BB /* bg_pattern_wood@2x.png */,
+				65BD60FE195C73E300EBF3BB /* recipe_tab_1.png */,
+				65BD60FF195C73E300EBF3BB /* recipe_tab_1@2x.png */,
+				65BD6100195C73E300EBF3BB /* recipe_tab_1_active.png */,
+				65BD6101195C73E300EBF3BB /* recipe_tab_1_active@2x.png */,
+				65BD6102195C73E300EBF3BB /* recipe_tab_2.png */,
+				65BD6103195C73E300EBF3BB /* recipe_tab_2@2x.png */,
+				65BD6104195C73E300EBF3BB /* recipe_tab_2_active.png */,
+				65BD6105195C73E300EBF3BB /* recipe_tab_2_active@2x.png */,
+				65BD6106195C73E300EBF3BB /* recipe_tab_3.png */,
+				65BD6107195C73E300EBF3BB /* recipe_tab_3@2x.png */,
+				65BD6108195C73E300EBF3BB /* recipe_tab_3_active.png */,
+				65BD6109195C73E300EBF3BB /* recipe_tab_3_active@2x.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,9 +305,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65BD6115195C73E300EBF3BB /* recipe_tab_3@2x.png in Resources */,
 				65BD60D2195C734700EBF3BB /* Main_iPad.storyboard in Resources */,
 				65BD60D7195C734700EBF3BB /* Images.xcassets in Resources */,
 				65BD60CF195C734700EBF3BB /* Main_iPhone.storyboard in Resources */,
+				65BD6111195C73E300EBF3BB /* recipe_tab_2@2x.png in Resources */,
+				65BD610C195C73E300EBF3BB /* recipe_tab_1.png in Resources */,
+				65BD6117195C73E300EBF3BB /* recipe_tab_3_active@2x.png in Resources */,
+				65BD6116195C73E300EBF3BB /* recipe_tab_3_active.png in Resources */,
+				65BD610B195C73E300EBF3BB /* bg_pattern_wood@2x.png in Resources */,
+				65BD610E195C73E300EBF3BB /* recipe_tab_1_active.png in Resources */,
+				65BD6114195C73E300EBF3BB /* recipe_tab_3.png in Resources */,
+				65BD6113195C73E300EBF3BB /* recipe_tab_2_active@2x.png in Resources */,
+				65BD610A195C73E300EBF3BB /* bg_pattern_wood.png in Resources */,
+				65BD610D195C73E300EBF3BB /* recipe_tab_1@2x.png in Resources */,
+				65BD610F195C73E300EBF3BB /* recipe_tab_1_active@2x.png in Resources */,
+				65BD6110195C73E300EBF3BB /* recipe_tab_2.png in Resources */,
+				65BD6112195C73E300EBF3BB /* recipe_tab_2_active.png in Resources */,
 				65BD60C6195C734700EBF3BB /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,7 +341,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65BD611A195C756C00EBF3BB /* FOANavigationNar.m in Sources */,
+				65BD60FA195C73CD00EBF3BB /* SegmentButtonView.m in Sources */,
 				65BD60C8195C734700EBF3BB /* main.m in Sources */,
+				65BD60F9195C73CD00EBF3BB /* RecipeSegmentControl.m in Sources */,
 				65BD60D5195C734700EBF3BB /* FOAViewController.m in Sources */,
 				65BD60CC195C734700EBF3BB /* FOAAppDelegate.m in Sources */,
 			);

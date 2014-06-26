@@ -7,6 +7,7 @@
 //
 
 #import "FOAViewController.h"
+#import "RecipeSegmentControl.h"
 
 @interface FOAViewController ()
 
@@ -18,6 +19,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view, typically from a nib.
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    self.navigationController.navigationBar.translucent = NO;
+    
+    [self.view addSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_pattern_wood.png"]]];
+    [self.view addSubview:[[RecipeSegmentControl alloc] init]];
 }
 
 - (void)didReceiveMemoryWarning
