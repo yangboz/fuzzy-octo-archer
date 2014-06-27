@@ -7,7 +7,6 @@
 //
 
 #import "FOAViewController.h"
-#import "RecipeSegmentControl.h"
 
 @interface FOAViewController ()
 
@@ -28,9 +27,6 @@
     foaNavigationBar.barStyle = UIBarStyleBlack;
     foaNavigationBar.translucent = NO;
     
-//    [self.view addSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_pattern_wood.png"]]];
-    RecipeSegmentControl *recipeSegementCtr = [[RecipeSegmentControl alloc]init];
-    [self.view addSubview:recipeSegementCtr];
     //Update the UIButton with border.
     self.photoButton.layer.borderWidth = 1.0f;
     self.photoButton.layer.borderColor = [[UIColor grayColor] CGColor];
@@ -42,16 +38,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma mark -SegmentButtonViewDelegate
-- (void)segmentButtonHighlighted:(SegmentButtonView *)highlightedSegmentButton
-{
-    NSLog(@"HighlightedSegmentButton:%@",highlightedSegmentButton.description);
-}
 
 #pragma mark - IBActions
 - (IBAction)uploadPhoto:(id)sender
 {
 
+}
+
+- (IBAction)segmentedButtonChanged:(id)sender
+{
+    NSLog(@"segmentedButtonChanged to %d",self.segementedCtr.selectedSegmentIndex);
 }
 
 - (IBAction)choosePhoto:(id)sender
