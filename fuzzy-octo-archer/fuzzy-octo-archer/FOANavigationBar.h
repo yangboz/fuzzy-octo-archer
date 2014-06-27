@@ -1,5 +1,5 @@
 //
-//  FOANavigationNar.h
+//  FOANavigationBar.h
 //  fuzzy-octo-archer
 //
 //  Created by yangboz on 14-6-26.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FOANavigationNar : UINavigationBar
+@interface FOANavigationBar : UINavigationBar
 
 @end

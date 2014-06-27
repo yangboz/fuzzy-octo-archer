@@ -38,7 +38,7 @@
 		65BD6115195C73E300EBF3BB /* recipe_tab_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BD6107195C73E300EBF3BB /* recipe_tab_3@2x.png */; };
 		65BD6116195C73E300EBF3BB /* recipe_tab_3_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BD6108195C73E300EBF3BB /* recipe_tab_3_active.png */; };
 		65BD6117195C73E300EBF3BB /* recipe_tab_3_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BD6109195C73E300EBF3BB /* recipe_tab_3_active@2x.png */; };
-		65BD611A195C756C00EBF3BB /* FOANavigationNar.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BD6119195C756C00EBF3BB /* FOANavigationNar.m */; };
+		65BD611A195C756C00EBF3BB /* FOANavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BD6119195C756C00EBF3BB /* FOANavigationBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,8 +90,8 @@
 		65BD6107195C73E300EBF3BB /* recipe_tab_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recipe_tab_3@2x.png"; sourceTree = "<group>"; };
 		65BD6108195C73E300EBF3BB /* recipe_tab_3_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recipe_tab_3_active.png; sourceTree = "<group>"; };
 		65BD6109195C73E300EBF3BB /* recipe_tab_3_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recipe_tab_3_active@2x.png"; sourceTree = "<group>"; };
-		65BD6118195C756C00EBF3BB /* FOANavigationNar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOANavigationNar.h; sourceTree = "<group>"; };
-		65BD6119195C756C00EBF3BB /* FOANavigationNar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOANavigationNar.m; sourceTree = "<group>"; };
+		65BD6118195C756C00EBF3BB /* FOANavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOANavigationBar.h; sourceTree = "<group>"; };
+		65BD6119195C756C00EBF3BB /* FOANavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOANavigationBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,8 +159,8 @@
 				65BD60D0195C734700EBF3BB /* Main_iPad.storyboard */,
 				65BD60D3195C734700EBF3BB /* FOAViewController.h */,
 				65BD60D4195C734700EBF3BB /* FOAViewController.m */,
-				65BD6118195C756C00EBF3BB /* FOANavigationNar.h */,
-				65BD6119195C756C00EBF3BB /* FOANavigationNar.m */,
+				65BD6118195C756C00EBF3BB /* FOANavigationBar.h */,
+				65BD6119195C756C00EBF3BB /* FOANavigationBar.m */,
 				65BD60D6195C734700EBF3BB /* Images.xcassets */,
 				65BD60C2195C734700EBF3BB /* Supporting Files */,
 			);
@@ -341,7 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65BD611A195C756C00EBF3BB /* FOANavigationNar.m in Sources */,
+				65BD611A195C756C00EBF3BB /* FOANavigationBar.m in Sources */,
 				65BD60FA195C73CD00EBF3BB /* SegmentButtonView.m in Sources */,
 				65BD60C8195C734700EBF3BB /* main.m in Sources */,
 				65BD60F9195C73CD00EBF3BB /* RecipeSegmentControl.m in Sources */,
@@ -561,6 +561,7 @@
 				65BD60EF195C734800EBF3BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65BD60F0195C734800EBF3BB /* Build configuration list for PBXNativeTarget "fuzzy-octo-archerTests" */ = {
 			isa = XCConfigurationList;
@@ -569,6 +570,7 @@
 				65BD60F2195C734800EBF3BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
