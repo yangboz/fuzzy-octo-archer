@@ -23,7 +23,8 @@
 		65BD60E8195C734800EBF3BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65BD60E6195C734800EBF3BB /* InfoPlist.strings */; };
 		65BD60EA195C734800EBF3BB /* fuzzy_octo_archerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BD60E9195C734800EBF3BB /* fuzzy_octo_archerTests.m */; };
 		65BD611A195C756C00EBF3BB /* FOANavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BD6119195C756C00EBF3BB /* FOANavigationBar.m */; };
-		65C9E2001962C931001BD3EC /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9E1FF1962C931001BD3EC /* opencv2.framework */; };
+		65C9E20C1962E826001BD3EC /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9E20B1962E826001BD3EC /* opencv2.framework */; };
+		65C9E20E1962EB54001BD3EC /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9E20D1962EB54001BD3EC /* libc++.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +60,8 @@
 		65BD60E9195C734800EBF3BB /* fuzzy_octo_archerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fuzzy_octo_archerTests.m; sourceTree = "<group>"; };
 		65BD6118195C756C00EBF3BB /* FOANavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOANavigationBar.h; sourceTree = "<group>"; };
 		65BD6119195C756C00EBF3BB /* FOANavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOANavigationBar.m; sourceTree = "<group>"; };
-		65C9E1FF1962C931001BD3EC /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = "fuzzy-octo-archer/opencv2.framework"; sourceTree = "<group>"; };
+		65C9E20B1962E826001BD3EC /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = "fuzzy-octo-archer/opencv2.framework"; sourceTree = "<group>"; };
+		65C9E20D1962EB54001BD3EC /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,9 +69,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C9E20E1962EB54001BD3EC /* libc++.dylib in Frameworks */,
 				65BD60BE195C734700EBF3BB /* CoreGraphics.framework in Frameworks */,
 				65BD60C0195C734700EBF3BB /* UIKit.framework in Frameworks */,
-				65C9E2001962C931001BD3EC /* opencv2.framework in Frameworks */,
+				65C9E20C1962E826001BD3EC /* opencv2.framework in Frameworks */,
 				65BD60BC195C734700EBF3BB /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,7 +112,8 @@
 		65BD60BA195C734700EBF3BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				65C9E1FF1962C931001BD3EC /* opencv2.framework */,
+				65C9E20D1962EB54001BD3EC /* libc++.dylib */,
+				65C9E20B1962E826001BD3EC /* opencv2.framework */,
 				65BD60BB195C734700EBF3BB /* Foundation.framework */,
 				65BD60BD195C734700EBF3BB /* CoreGraphics.framework */,
 				65BD60BF195C734700EBF3BB /* UIKit.framework */,

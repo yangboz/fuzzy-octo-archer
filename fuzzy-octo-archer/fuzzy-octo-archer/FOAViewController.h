@@ -11,6 +11,7 @@
 
 @interface FOAViewController : UIViewController <UIImagePickerControllerDelegate>
 {
+    cv::Mat cvImage;
 }
 //IBOutlets
 @property(nonatomic, retain) UIImage *photo;
@@ -21,4 +22,10 @@
 - (IBAction)uploadPhoto:(id)sender;
 - (IBAction)choosePhoto:(id)sender;
 - (IBAction)segmentedButtonChanged:(id)sender;
+//OpenCV functions
+/*
+- (cv::Mat)cvMatFromUIImage:(UIImage *)image;
+- (cv::Mat)cvMatGrayFromUIImage:(UIImage *)image;
+- (UIImage *)UIImageFromCVMat: (cv::Mat)cvMat;
+ */
 @end

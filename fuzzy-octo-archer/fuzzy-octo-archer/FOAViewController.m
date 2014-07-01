@@ -7,6 +7,7 @@
 //
 
 #import "FOAViewController.h"
+#import "opencv2/highgui/ios.h"
 
 @interface FOAViewController ()
 
@@ -112,6 +113,7 @@
 	self.photo = [info objectForKey:UIImagePickerControllerEditedImage];
     //
     [self.photoButton setBackgroundImage:self.photo forState:UIControlStateNormal];
+    //OpenCV2 operation
 }
 
 
