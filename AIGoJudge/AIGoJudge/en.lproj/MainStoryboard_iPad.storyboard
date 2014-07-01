@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F37" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="4">
             <objects>
-                <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="2" customClass="FOAViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3xk-uB-Hfq"/>
                         <viewControllerLayoutGuide type="bottom" id="xCt-dG-lgg"/>
@@ -17,20 +17,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LRX-ca-Rom">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                            </imageView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uhO-TN-oxx" customClass="FOANavigationBar">
+                                <rect key="frame" x="0.0" y="28" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="AIGoJudge" id="S3V-1I-E0a"/>
+                                </items>
+                            </navigationBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yTn-nd-WaQ">
+                                <rect key="frame" x="298" y="91" width="173" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Should"/>
+                                    <segment title="Would"/>
+                                    <segment title="Could"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedButtonChanged:" destination="2" eventType="valueChanged" id="xfk-Iz-Qtf"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYh-9v-Uvv">
+                                <rect key="frame" x="96" y="212" width="600" height="600"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="PHOTO">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="choosePhoto:" destination="2" eventType="touchUpInside" id="4pY-5m-qFW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="LRX-ca-Rom" firstAttribute="bottom" secondItem="5" secondAttribute="bottom" id="Qo1-V3-tT2"/>
-                            <constraint firstItem="LRX-ca-Rom" firstAttribute="top" secondItem="5" secondAttribute="top" id="Qwd-op-y9S"/>
-                            <constraint firstItem="LRX-ca-Rom" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" id="bZF-AV-IK4"/>
-                            <constraint firstItem="LRX-ca-Rom" firstAttribute="leading" secondItem="5" secondAttribute="leading" id="n65-8p-smd"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="LRX-ca-Rom" id="POY-jf-9T5"/>
+                        <outlet property="foaNavigationBar" destination="uhO-TN-oxx" id="7Fs-SR-azE"/>
+                        <outlet property="photoButton" destination="gYh-9v-Uvv" id="7YT-5T-x3g"/>
+                        <outlet property="segementedCtr" destination="yTn-nd-WaQ" id="RxW-v6-aOr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>

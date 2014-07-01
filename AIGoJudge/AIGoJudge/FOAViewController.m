@@ -49,6 +49,52 @@
 - (IBAction)segmentedButtonChanged:(id)sender
 {
     NSLog(@"segmentedButtonChanged to %d",self.segementedCtr.selectedSegmentIndex);
+    //OpenCV2 operation
+    // Convert UIImage* to cv::Mat
+    UIImageToMat(self.photo, cvImage);
+    NSData* data;
+    //
+    switch (self.segementedCtr.selectedSegmentIndex) {
+        case 0:
+            break;
+        case 1:
+            data = UIImagePNGRepresentation(self.photo);
+                // Decode image from the data buffer
+            cvImage = cv::imdecode(cv::Mat(1, [data length], CV_8UC1,
+                                               (void*)data.bytes),
+                                       CV_LOAD_IMAGE_UNCHANGED);
+            
+            if (!cvImage.empty())
+            {
+                cv::Mat gray;
+                // Convert the image to grayscale
+                cv::cvtColor(cvImage, gray, CV_RGBA2GRAY);
+                // Apply Gaussian filter to remove small edges
+                cv::GaussianBlur(gray, gray,
+                                 cv::Size(5, 5), 1.2, 1.2);
+                // Calculate edges with Canny
+                cv::Mat edges;
+                cv::Canny(gray, edges, 0, 50);
+                // Fill image with white color
+                cvImage.setTo(cv::Scalar::all(255));
+                // Change color on edges
+                cvImage.setTo(cv::Scalar(0, 128, 255, 255), edges);
+            }
+            break;
+        case 2:
+            NSString* filePath = [[NSBundle mainBundle] pathForResource:@"lena" ofType:@"png"];
+            // Create file handle
+            NSFileHandle* handle =
+            [NSFileHandle fileHandleForReadingAtPath:filePath];
+            // Read content of the file
+            data = [handle readDataToEndOfFile];
+            // Decode image from the data buffer
+            cvImage = cv::imdecode(cv::Mat(1, [data length], CV_8UC1,(void*)data.bytes),CV_LOAD_IMAGE_UNCHANGED);
+            break;
+    }
+    // Convert cv::Mat to UIImage* and show the resulting image
+    self.photo = MatToUIImage(cvImage);
+    [self.photoButton setBackgroundImage:self.photo forState:UIControlStateNormal];
 }
 
 - (IBAction)choosePhoto:(id)sender
@@ -113,7 +159,6 @@
 	self.photo = [info objectForKey:UIImagePickerControllerEditedImage];
     //
     [self.photoButton setBackgroundImage:self.photo forState:UIControlStateNormal];
-    //OpenCV2 operation
 }
 
 
