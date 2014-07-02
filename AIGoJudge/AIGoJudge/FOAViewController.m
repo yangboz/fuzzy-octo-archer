@@ -66,50 +66,49 @@
     // Convert UIImage* to cv::Mat
     UIImageToMat(self.photo, cvImage);
     NSData* data = UIImagePNGRepresentation(self.photo);
+    // Decode image from the data buffer
+    cvImage = cv::imdecode(cv::Mat(1, [data length], CV_8UC1,
+                                   (void*)data.bytes),
+                           CV_LOAD_IMAGE_UNCHANGED);
+    if (cvImage.empty()) return;
+    //
+    cv::Mat gray;
+    // Convert the image to grayscale
+    cv::cvtColor(cvImage, gray, CV_RGBA2GRAY);
     //
     switch (self.segementedCtr.selectedSegmentIndex) {
         case 0:
             //Empty hanlder
             break;
         case 1:
-            // Decode image from the data buffer
-            cvImage = cv::imdecode(cv::Mat(1, [data length], CV_8UC1,
-                                               (void*)data.bytes),
-                                       CV_LOAD_IMAGE_UNCHANGED);
-            
-            if (!cvImage.empty())
-            {
-                cv::Mat gray;
-                // Convert the image to grayscale
-                cv::cvtColor(cvImage, gray, CV_RGBA2GRAY);
-                // Apply Gaussian filter to remove small edges
-                cv::GaussianBlur(gray, gray,
+        {    // Apply Gaussian filter to remove small edges
+            cv::GaussianBlur(gray, gray,
                                  cv::Size(5, 5), 1.2, 1.2);
-                // Calculate edges with Canny
-                cv::Mat edges;
-                cv::Canny(gray, edges, 0, 50);
-                // Fill image with white color
-                cvImage.setTo(cv::Scalar::all(255));
-                // Change color on edges
-                cvImage.setTo(cv::Scalar(0, 128, 255, 255), edges);
-            }
-                        break;
-//@see http://docs.opencv.org/doc/tutorials/calib3d/camera_calibration_square_chess/camera_calibration_square_chess.html
+            // Calculate edges with Canny
+            cv::Mat edges;
+            cv::Canny(gray, edges, 0, 50);
+            // Fill image with white color
+            cvImage.setTo(cv::Scalar::all(255));
+            // Change color on edges
+            cvImage.setTo(cv::Scalar(0, 128, 255, 255), edges);
+        }
+        break;
         case 2:
-            // Decode image from the data buffer
-            cvImage = cv::imdecode(cv::Mat(1, [data length], CV_8UC1,(void*)data.bytes),CV_LOAD_IMAGE_UNCHANGED);
-            if (!cvImage.empty())
-            {
-                cv::Mat gray;
-                // Convert the image to grayscale
-                cv::cvtColor(cvImage, gray, CV_RGBA2GRAY);
-                //Detect a chessboard in this image using findChessboard function.
-                cv::vector<cv::Point2f> imageCorners;
-                BOOL found = cv::findChessboardCorners(cvImage, cv::Size(cvImage.cols, cvImage.rows), imageCorners,CV_CALIB_CB_ADAPTIVE_THRESH | CV_CALIB_CB_FILTER_QUADS);
-                
-                NSLog(@"findChessboardCorners result:%d",(int)found);
-            }
-            break;
+            //@see http://docs.opencv.org/doc/tutorials/calib3d/camera_calibration_square_chess/camera_calibration_square_chess.html
+        {
+            //Detect a chessboard in this image using findChessboard function.
+            int board_w = 8; // Board width in squares
+            int board_h = 5; // Board height
+            // Dimensions of board
+            cv::Size board_sz = cv::Size( board_h, board_w );
+            //
+            cv::vector<cv::Point2f> imageCorners;
+            //
+            BOOL found = cv::findChessboardCorners(gray, board_sz, imageCorners,CV_CALIB_CB_FILTER_QUADS);
+            //
+            NSLog(@"findChessboardCorners result:%d",(int)found);
+        }
+        break;
     }
     // Convert cv::Mat to UIImage* and show the resulting image
     self.photo = MatToUIImage(cvImage);
