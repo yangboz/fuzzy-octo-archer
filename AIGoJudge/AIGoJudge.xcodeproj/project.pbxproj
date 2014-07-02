@@ -26,6 +26,7 @@
 		65C9E2501962FB91001BD3EC /* FOAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C9E2421962FB91001BD3EC /* FOAViewController.m */; };
 		65C9E2511962FB91001BD3EC /* lena.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C9E2431962FB91001BD3EC /* lena.png */; };
 		65C9E2521962FB91001BD3EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C9E2441962FB91001BD3EC /* main.m */; };
+		65C9E25519639684001BD3EC /* chessboard_page01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65C9E25419639684001BD3EC /* chessboard_page01.jpg */; };
 		8360CD5D1736684E00A0F806 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8360CD5C1736684E00A0F806 /* UIKit.framework */; };
 		8360CD5F1736684E00A0F806 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8360CD5E1736684E00A0F806 /* Foundation.framework */; };
 		8360CD611736684E00A0F806 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8360CD601736684E00A0F806 /* CoreGraphics.framework */; };
@@ -55,6 +56,7 @@
 		65C9E2421962FB91001BD3EC /* FOAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOAViewController.m; sourceTree = "<group>"; };
 		65C9E2431962FB91001BD3EC /* lena.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lena.png; sourceTree = "<group>"; };
 		65C9E2441962FB91001BD3EC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		65C9E25419639684001BD3EC /* chessboard_page01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chessboard_page01.jpg; sourceTree = "<group>"; };
 		8360CD581736684E00A0F806 /* AIGoJudge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIGoJudge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8360CD5C1736684E00A0F806 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8360CD5E1736684E00A0F806 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -85,6 +87,7 @@
 		65C9E2311962FB91001BD3EC /* AIGoJudge */ = {
 			isa = PBXGroup;
 			children = (
+				65C9E25419639684001BD3EC /* chessboard_page01.jpg */,
 				65C9E2321962FB91001BD3EC /* AIGoJudge-Info.plist */,
 				65C9E2331962FB91001BD3EC /* AIGoJudge-Prefix.pch */,
 				65C9E2341962FB91001BD3EC /* AppDelegate.h */,
@@ -192,6 +195,7 @@
 			files = (
 				65C9E24D1962FB91001BD3EC /* MainStoryboard_iPad.storyboard in Resources */,
 				65C9E24B1962FB91001BD3EC /* Default@2x.png in Resources */,
+				65C9E25519639684001BD3EC /* chessboard_page01.jpg in Resources */,
 				65C9E2471962FB91001BD3EC /* AIGoJudge-Info.plist in Resources */,
 				65C9E2511962FB91001BD3EC /* lena.png in Resources */,
 				65C9E24E1962FB91001BD3EC /* MainStoryboard_iPhone.storyboard in Resources */,

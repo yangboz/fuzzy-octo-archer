@@ -49,17 +49,30 @@
 - (IBAction)segmentedButtonChanged:(id)sender
 {
     NSLog(@"segmentedButtonChanged to %d",self.segementedCtr.selectedSegmentIndex);
-    //OpenCV2 operation
+    //NULL check!
+    if (self.photo==NULL) {
+        return;
+    }
+    /*
+     //Load a test image:
+     NSString* filePath = [[NSBundle mainBundle] pathForResource:@"chessboard_page01" ofType:@"jpg"];
+     // Create file handle
+     NSFileHandle* handle =
+     [NSFileHandle fileHandleForReadingAtPath:filePath];
+     // Read content of the file
+     data = [handle readDataToEndOfFile];
+     */
+    //OpenCV2 operation as following.
     // Convert UIImage* to cv::Mat
     UIImageToMat(self.photo, cvImage);
-    NSData* data;
+    NSData* data = UIImagePNGRepresentation(self.photo);
     //
     switch (self.segementedCtr.selectedSegmentIndex) {
         case 0:
+            //Empty hanlder
             break;
         case 1:
-            data = UIImagePNGRepresentation(self.photo);
-                // Decode image from the data buffer
+            // Decode image from the data buffer
             cvImage = cv::imdecode(cv::Mat(1, [data length], CV_8UC1,
                                                (void*)data.bytes),
                                        CV_LOAD_IMAGE_UNCHANGED);
@@ -80,16 +93,22 @@
                 // Change color on edges
                 cvImage.setTo(cv::Scalar(0, 128, 255, 255), edges);
             }
-            break;
+                        break;
+//@see http://docs.opencv.org/doc/tutorials/calib3d/camera_calibration_square_chess/camera_calibration_square_chess.html
         case 2:
-            NSString* filePath = [[NSBundle mainBundle] pathForResource:@"lena" ofType:@"png"];
-            // Create file handle
-            NSFileHandle* handle =
-            [NSFileHandle fileHandleForReadingAtPath:filePath];
-            // Read content of the file
-            data = [handle readDataToEndOfFile];
             // Decode image from the data buffer
             cvImage = cv::imdecode(cv::Mat(1, [data length], CV_8UC1,(void*)data.bytes),CV_LOAD_IMAGE_UNCHANGED);
+            if (!cvImage.empty())
+            {
+                cv::Mat gray;
+                // Convert the image to grayscale
+                cv::cvtColor(cvImage, gray, CV_RGBA2GRAY);
+                //Detect a chessboard in this image using findChessboard function.
+                cv::vector<cv::Point2f> imageCorners;
+                BOOL found = cv::findChessboardCorners(cvImage, cv::Size(cvImage.cols, cvImage.rows), imageCorners,CV_CALIB_CB_ADAPTIVE_THRESH | CV_CALIB_CB_FILTER_QUADS);
+                
+                NSLog(@"findChessboardCorners result:%d",(int)found);
+            }
             break;
     }
     // Convert cv::Mat to UIImage* and show the resulting image
