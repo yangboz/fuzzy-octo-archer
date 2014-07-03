@@ -72,21 +72,21 @@
                            CV_LOAD_IMAGE_UNCHANGED);
     if (cvImage.empty()) return;
     //
-    cv::Mat gray;
+    cv::Mat cvImageGray;
     // Convert the image to grayscale
-    cv::cvtColor(cvImage, gray, CV_RGBA2GRAY);
+    cv::cvtColor(cvImage, cvImageGray, CV_RGBA2GRAY);
+    // Apply Gaussian filter to remove small edges
+    cv::GaussianBlur(cvImageGray, cvImageGray,cv::Size(5, 5), 1.2, 1.2);
     //
     switch (self.segementedCtr.selectedSegmentIndex) {
         case 0:
             //Empty hanlder
             break;
         case 1:
-        {    // Apply Gaussian filter to remove small edges
-            cv::GaussianBlur(gray, gray,
-                                 cv::Size(5, 5), 1.2, 1.2);
+        {
             // Calculate edges with Canny
             cv::Mat edges;
-            cv::Canny(gray, edges, 0, 50);
+            cv::Canny(cvImageGray, edges, 0, 50);
             // Fill image with white color
             cvImage.setTo(cv::Scalar::all(255));
             // Change color on edges
@@ -104,9 +104,52 @@
             //
             cv::vector<cv::Point2f> imageCorners;
             //
-            BOOL found = cv::findChessboardCorners(gray, board_sz, imageCorners,CV_CALIB_CB_FILTER_QUADS);
+            BOOL found = cv::findChessboardCorners(cvImageGray, board_sz, imageCorners,CV_CALIB_CB_ADAPTIVE_THRESH | CV_CALIB_CB_NORMALIZE_IMAGE);
             //
             NSLog(@"findChessboardCorners result:%d",(int)found);
+            //HoughLine detection
+            /*
+            std::vector<cv::Vec2f> lines;
+            cv::HoughLines(cvImageGray, lines, 1, CV_PI/180, 100);
+            //
+            std::vector<cv::Vec2f>::iterator it = lines.begin();
+            for(; it!=lines.end(); ++it) {
+                float rho = (*it)[0], theta = (*it)[1];
+                cv::Point pt1, pt2;
+                double a = cos(theta), b = sin(theta);
+                double x0 = a*rho, y0 = b*rho;
+                pt1.x = cv::saturate_cast<int>(x0 + 1000*(-b));
+                pt1.y = cv::saturate_cast<int>(y0 + 1000*(a));
+                pt2.x = cv::saturate_cast<int>(x0 - 1000*(-b));
+                pt2.y = cv::saturate_cast<int>(y0 - 1000*(a));
+                //cv::line(cvImage, pt1, pt2, cv::Scalar(0,0,255), 0.1, CV_AA);
+            }
+             */
+            //HoughLinesP detection
+            /*
+            std::vector<cv::Vec4i> lines;
+            cv::HoughLinesP(cvImageGray, lines, 1, CV_PI/180, 50, 50, 100);
+            
+            std::vector<cv::Vec4i>::iterator it = lines.begin();
+            for(; it!=lines.end(); ++it) {
+                cv::Vec4i l = *it;
+                cv::line(cvImage, cv::Point(l[0], l[1]), cv::Point(l[2], l[3]), cv::Scalar(0,0,255), 0.01, CV_AA);
+            }
+             */
+            //! finds circles in the grayscale image using 2+1 gradient Hough transform
+            //HoughLinesCircle
+            std::vector<cv::Vec3f> circles;
+            cv::HoughCircles(cvImageGray, circles, CV_HOUGH_GRADIENT,
+                         2, cvImageGray.rows/4, 200, 100 );
+            for( size_t i = 0; i < circles.size(); i++ )
+            {
+                cv::Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
+                int radius = cvRound(circles[i][2]);
+                // draw the circle center
+                cv::circle( cvImage, center, 3, cv::Scalar(0,255,0), -1, 8, 0 );
+                // draw the circle outline
+                cv::circle( cvImage, center, radius, cv::Scalar(0,0,255), 3, 8, 0 );
+            }
         }
         break;
     }
