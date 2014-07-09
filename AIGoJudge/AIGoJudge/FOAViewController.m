@@ -160,6 +160,10 @@
 
 - (IBAction)choosePhoto:(id)sender
 {
+    if (self.segementedCtr.selectedSegmentIndex) {
+        return;//Avoid false selection.
+    }
+    //
     UIActionSheet *choosePhotoActionSheet;
     
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {

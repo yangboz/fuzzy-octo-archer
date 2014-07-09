@@ -27,6 +27,7 @@
 		65C9E2511962FB91001BD3EC /* lena.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C9E2431962FB91001BD3EC /* lena.png */; };
 		65C9E2521962FB91001BD3EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C9E2441962FB91001BD3EC /* main.m */; };
 		65C9E25519639684001BD3EC /* chessboard_page01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65C9E25419639684001BD3EC /* chessboard_page01.jpg */; };
+		65F20542196D2905003545C7 /* FOAFinderUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F20541196D2905003545C7 /* FOAFinderUtil.m */; };
 		8360CD5D1736684E00A0F806 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8360CD5C1736684E00A0F806 /* UIKit.framework */; };
 		8360CD5F1736684E00A0F806 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8360CD5E1736684E00A0F806 /* Foundation.framework */; };
 		8360CD611736684E00A0F806 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8360CD601736684E00A0F806 /* CoreGraphics.framework */; };
@@ -57,6 +58,8 @@
 		65C9E2431962FB91001BD3EC /* lena.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lena.png; sourceTree = "<group>"; };
 		65C9E2441962FB91001BD3EC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		65C9E25419639684001BD3EC /* chessboard_page01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chessboard_page01.jpg; sourceTree = "<group>"; };
+		65F20540196D2905003545C7 /* FOAFinderUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOAFinderUtil.h; sourceTree = "<group>"; };
+		65F20541196D2905003545C7 /* FOAFinderUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOAFinderUtil.m; sourceTree = "<group>"; };
 		8360CD581736684E00A0F806 /* AIGoJudge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIGoJudge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8360CD5C1736684E00A0F806 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8360CD5E1736684E00A0F806 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -87,6 +90,7 @@
 		65C9E2311962FB91001BD3EC /* AIGoJudge */ = {
 			isa = PBXGroup;
 			children = (
+				65F2053C196D271D003545C7 /* utils */,
 				65C9E25419639684001BD3EC /* chessboard_page01.jpg */,
 				65C9E2321962FB91001BD3EC /* AIGoJudge-Info.plist */,
 				65C9E2331962FB91001BD3EC /* AIGoJudge-Prefix.pch */,
@@ -106,6 +110,15 @@
 				65C9E2441962FB91001BD3EC /* main.m */,
 			);
 			path = AIGoJudge;
+			sourceTree = "<group>";
+		};
+		65F2053C196D271D003545C7 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				65F20540196D2905003545C7 /* FOAFinderUtil.h */,
+				65F20541196D2905003545C7 /* FOAFinderUtil.m */,
+			);
+			name = utils;
 			sourceTree = "<group>";
 		};
 		8360CD4D1736684D00A0F806 = {
@@ -213,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65C9E24F1962FB91001BD3EC /* FOANavigationBar.m in Sources */,
+				65F20542196D2905003545C7 /* FOAFinderUtil.m in Sources */,
 				65C9E2501962FB91001BD3EC /* FOAViewController.m in Sources */,
 				65C9E2521962FB91001BD3EC /* main.m in Sources */,
 				65C9E2481962FB91001BD3EC /* AppDelegate.m in Sources */,
