@@ -11,6 +11,17 @@
 
 @interface FaceAgingWrapper(){
     FaceAging * faceAging;
+    //
+    std::string imageNameStr;
+    std::string trackModelNameStr;
+    std::string trainedModeleNameStr;
+    char * imageNameChar;
+    char * trackModelNameChar;
+    char * trainedModeleNameChar;
+    //
+    char* findFaceOutputName;
+    char* agingFaceOutputName;
+    char* vFaceOutputName;
 }
 
 @end
@@ -24,47 +35,36 @@
         self._trackModelName = trackModelName;
         self._trainedModeleName = trainedModeleName;
         //
-        std::string imageNameStr = std::string([imageName UTF8String]);
-        std::string trackModelNameStr = std::string([trackModelName UTF8String]);
-        std::string trainedModeleNameStr = std::string([trainedModeleName UTF8String]);
+        imageNameStr = std::string([imageName UTF8String]);
+        trackModelNameStr = std::string([trackModelName UTF8String]);
+        trainedModeleNameStr = std::string([trainedModeleName UTF8String]);
         faceAging = new FaceAging(imageNameStr,trackModelNameStr,trainedModeleNameStr);
+        //
+        strcpy(imageNameChar,imageNameStr.c_str());
+        strcpy(trackModelNameChar,trackModelNameStr.c_str());
+        strcpy(trainedModeleNameChar,trainedModeleNameStr.c_str());
+        //
+        findFaceOutputName = "foundFace.png";
+        agingFaceOutputName = "agingFace.png";
+        vFaceOutputName = "vFace.png";
     }
     return self;
 }
 //
 -(void)faceAging
 {
-    std::string imageNameStr = std::string([self._imageName UTF8String]);
-    std::string trackModelNameStr = std::string([self._trackModelName UTF8String]);
-    std::string trainedModeleNameStr = std::string([self._trainedModeleName UTF8String]);
     //
-    char* __imageName = "1.jpg";
-    char* __trackModelName = "face2.tracker";
-    //
-    char* agingFaceOutputName = "agingFace.png";
-    //
-    faceAging->faceAging(__imageName, __trackModelName, agingFaceOutputName);
+    faceAging->faceAging(imageNameChar, trackModelNameChar, agingFaceOutputName);
 }
 -(void)findFace
 {
     //
-    char* __imageName = "1.jpg";
-    char* __trackModelName = "face2.tracker";
-    //
-    char* findFaceOutputName = "foundFace.png";
-    //
-    faceAging->findFace(__imageName, __trackModelName, findFaceOutputName);
+    faceAging->findFace(imageNameChar, trackModelNameChar, findFaceOutputName);
 }
 -(void)vFace
 {
     //
-    char* __imageName = "1.jpg";
-    char* __trackModelName = "face2.tracker";
-    char* __trainedModeleName = "train.dat";
-    //
-    char* vFaceOutputName = "vFace.png";
-    //
-    faceAging->vFace(__imageName, __trackModelName, __trainedModeleName, vFaceOutputName);
+    faceAging->vFace(imageNameChar, trackModelNameChar, trainedModeleNameChar, vFaceOutputName);
 }
 //
 @end
