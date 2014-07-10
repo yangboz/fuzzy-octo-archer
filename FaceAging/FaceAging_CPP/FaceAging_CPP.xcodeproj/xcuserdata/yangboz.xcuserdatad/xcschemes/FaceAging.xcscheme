@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "651B6FDC196D806800F27121"
-               BuildableName = "FaceAging.dylib"
+               BuildableName = "FaceAging_CPP.dylib"
                BlueprintName = "FaceAging_CPP"
                ReferencedContainer = "container:FaceAging_CPP.xcodeproj">
             </BuildableReference>

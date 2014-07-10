@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		651B7295196D9F5600F27121 /* FaceAging_CPP.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 651B7294196D9F5600F27121 /* FaceAging_CPP.dylib */; };
+		651B72AA196E239000F27121 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 651B72A7196E239000F27121 /* 1.jpg */; };
+		651B72AB196E239000F27121 /* face2.tracker in Resources */ = {isa = PBXBuildFile; fileRef = 651B72A8196E239000F27121 /* face2.tracker */; };
+		651B72AC196E239000F27121 /* train.dat in Resources */ = {isa = PBXBuildFile; fileRef = 651B72A9196E239000F27121 /* train.dat */; };
+		651B72AE196E23E200F27121 /* FaceAging_iOS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 651B72AD196E23E200F27121 /* FaceAging_iOS-Info.plist */; };
+		65BDD550196E591000B3C1C2 /* libCppWrapper_FaceAging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BDD54F196E591000B3C1C2 /* libCppWrapper_FaceAging.a */; };
 		65C9E21C1962F51E001BD3EC /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9E21B1962F51E001BD3EC /* opencv2.framework */; };
 		65C9E2261962F8B7001BD3EC /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9E2251962F8B7001BD3EC /* CoreMedia.framework */; };
 		65C9E2281962F902001BD3EC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9E2271962F902001BD3EC /* AVFoundation.framework */; };
@@ -34,7 +38,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		651B7294196D9F5600F27121 /* FaceAging_CPP.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = FaceAging_CPP.dylib; sourceTree = "<group>"; };
+		651B72A7196E239000F27121 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		651B72A8196E239000F27121 /* face2.tracker */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = face2.tracker; sourceTree = "<group>"; };
+		651B72A9196E239000F27121 /* train.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = train.dat; sourceTree = "<group>"; };
+		651B72AD196E23E200F27121 /* FaceAging_iOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FaceAging_iOS-Info.plist"; sourceTree = "<group>"; };
+		65BDD54F196E591000B3C1C2 /* libCppWrapper_FaceAging.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCppWrapper_FaceAging.a; sourceTree = "<group>"; };
+		65BDD554196E62E500B3C1C2 /* FaceAgingWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceAgingWrapper.h; sourceTree = "<group>"; };
 		65C9E21B1962F51E001BD3EC /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		65C9E2251962F8B7001BD3EC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		65C9E2271962F902001BD3EC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -71,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				651B7295196D9F5600F27121 /* FaceAging_CPP.dylib in Frameworks */,
+				65BDD550196E591000B3C1C2 /* libCppWrapper_FaceAging.a in Frameworks */,
 				65C9E2301962F97D001BD3EC /* Accelerate.framework in Frameworks */,
 				65C9E22E1962F96E001BD3EC /* QuartzCore.framework in Frameworks */,
 				65C9E22C1962F92A001BD3EC /* CoreImage.framework in Frameworks */,
@@ -91,6 +100,11 @@
 		65C9E2311962FB91001BD3EC /* AIGoJudge */ = {
 			isa = PBXGroup;
 			children = (
+				65BDD554196E62E500B3C1C2 /* FaceAgingWrapper.h */,
+				651B72AD196E23E200F27121 /* FaceAging_iOS-Info.plist */,
+				651B72A7196E239000F27121 /* 1.jpg */,
+				651B72A8196E239000F27121 /* face2.tracker */,
+				651B72A9196E239000F27121 /* train.dat */,
 				65F2053C196D271D003545C7 /* utils */,
 				65C9E25419639684001BD3EC /* chessboard_page01.jpg */,
 				65C9E2331962FB91001BD3EC /* FaceAging_iOS-Prefix.pch */,
@@ -141,7 +155,7 @@
 		8360CD5B1736684E00A0F806 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				651B7294196D9F5600F27121 /* FaceAging_CPP.dylib */,
+				65BDD54F196E591000B3C1C2 /* libCppWrapper_FaceAging.a */,
 				65C9E22F1962F97D001BD3EC /* Accelerate.framework */,
 				65C9E22D1962F96E001BD3EC /* QuartzCore.framework */,
 				65C9E22B1962F92A001BD3EC /* CoreImage.framework */,
@@ -213,7 +227,11 @@
 				65C9E2511962FB91001BD3EC /* lena.png in Resources */,
 				65C9E24E1962FB91001BD3EC /* MainStoryboard_iPhone.storyboard in Resources */,
 				65C9E24A1962FB91001BD3EC /* Default.png in Resources */,
+				651B72AA196E239000F27121 /* 1.jpg in Resources */,
+				651B72AC196E239000F27121 /* train.dat in Resources */,
 				65C9E2491962FB91001BD3EC /* Default-568h@2x.png in Resources */,
+				651B72AB196E239000F27121 /* face2.tracker in Resources */,
+				651B72AE196E23E200F27121 /* FaceAging_iOS-Info.plist in Resources */,
 				65C9E24C1962FB91001BD3EC /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,7 +344,7 @@
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AIGoJudge/FaceAging_iOS-Prefix.pch";
-				INFOPLIST_FILE = "AIGoJudge/AIGoJudge-Info.plist";
+				INFOPLIST_FILE = "AIGoJudge/FaceAging_iOS-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -347,7 +365,7 @@
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AIGoJudge/FaceAging_iOS-Prefix.pch";
-				INFOPLIST_FILE = "AIGoJudge/AIGoJudge-Info.plist";
+				INFOPLIST_FILE = "AIGoJudge/FaceAging_iOS-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

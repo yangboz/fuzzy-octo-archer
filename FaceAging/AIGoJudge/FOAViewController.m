@@ -9,6 +9,8 @@
 #import "FOAViewController.h"
 #import "opencv2/highgui/ios.h"
 
+#import "FaceAgingWrapper.h"
+
 
 @interface FOAViewController ()
 
@@ -49,7 +51,25 @@
 
 - (IBAction)segmentedButtonChanged:(id)sender
 {
-    NSLog(@"segmentedButtonChanged to %d",self.segementedCtr.selectedSegmentIndex);
+    NSLog(@"segmentedButtonChanged to %ld",(long)self.segementedCtr.selectedSegmentIndex);
+    //FaceAging testing code:
+    FaceAgingWrapper *faceAging = [[FaceAgingWrapper alloc] initWithImageName:@"1.jpg" andTrackModelName:@"face2.tracker" andTrainedModeleName:@"train.dat"];
+    [faceAging faceAging];
+    [faceAging findFace];
+    [faceAging vFace];
+    /*
+    char *imageName = nullptr;
+    NSString * imageNameStr = @"1.jpg";
+    strcpy(imageName,(char *)[imageNameStr UTF8String]);
+    char *trackModelName = nullptr;
+    NSString * trackModelStr = @"face2.tracker";
+    strcpy(trackModelName,(char *)[trackModelStr UTF8String]);
+    char *trainedModeleName = nullptr;
+    NSString * trainedModeleNameStr = @"train.dat";
+    strcpy(trainedModeleName,(char *)[trainedModeleNameStr UTF8String]);
+    char *argv[] = {imageName,trackModelName,trainedModeleName};
+    main(4, argv);
+     */
     //NULL check!
     if (self.photo==NULL) {
         return;
