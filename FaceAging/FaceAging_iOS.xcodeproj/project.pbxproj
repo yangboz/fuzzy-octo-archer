@@ -11,7 +11,7 @@
 		651B72AB196E239000F27121 /* face2.tracker in Resources */ = {isa = PBXBuildFile; fileRef = 651B72A8196E239000F27121 /* face2.tracker */; };
 		651B72AC196E239000F27121 /* train.dat in Resources */ = {isa = PBXBuildFile; fileRef = 651B72A9196E239000F27121 /* train.dat */; };
 		651B72AE196E23E200F27121 /* FaceAging_iOS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 651B72AD196E23E200F27121 /* FaceAging_iOS-Info.plist */; };
-		65BDD550196E591000B3C1C2 /* libCppWrapper_FaceAging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BDD54F196E591000B3C1C2 /* libCppWrapper_FaceAging.a */; };
+		65BDD558196F7B5300B3C1C2 /* libCppWrapper_FaceAging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BDD557196F7B5300B3C1C2 /* libCppWrapper_FaceAging.a */; };
 		65C9E21C1962F51E001BD3EC /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9E21B1962F51E001BD3EC /* opencv2.framework */; };
 		65C9E2261962F8B7001BD3EC /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9E2251962F8B7001BD3EC /* CoreMedia.framework */; };
 		65C9E2281962F902001BD3EC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C9E2271962F902001BD3EC /* AVFoundation.framework */; };
@@ -42,8 +42,8 @@
 		651B72A8196E239000F27121 /* face2.tracker */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = face2.tracker; sourceTree = "<group>"; };
 		651B72A9196E239000F27121 /* train.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = train.dat; sourceTree = "<group>"; };
 		651B72AD196E23E200F27121 /* FaceAging_iOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FaceAging_iOS-Info.plist"; sourceTree = "<group>"; };
-		65BDD54F196E591000B3C1C2 /* libCppWrapper_FaceAging.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCppWrapper_FaceAging.a; sourceTree = "<group>"; };
-		65BDD554196E62E500B3C1C2 /* FaceAgingWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceAgingWrapper.h; sourceTree = "<group>"; };
+		65BDD557196F7B5300B3C1C2 /* libCppWrapper_FaceAging.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCppWrapper_FaceAging.a; sourceTree = "<group>"; };
+		65C04332197009CD0070D6ED /* FaceAgingWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceAgingWrapper.h; sourceTree = "<group>"; };
 		65C9E21B1962F51E001BD3EC /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		65C9E2251962F8B7001BD3EC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		65C9E2271962F902001BD3EC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -80,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65BDD550196E591000B3C1C2 /* libCppWrapper_FaceAging.a in Frameworks */,
+				65BDD558196F7B5300B3C1C2 /* libCppWrapper_FaceAging.a in Frameworks */,
 				65C9E2301962F97D001BD3EC /* Accelerate.framework in Frameworks */,
 				65C9E22E1962F96E001BD3EC /* QuartzCore.framework in Frameworks */,
 				65C9E22C1962F92A001BD3EC /* CoreImage.framework in Frameworks */,
@@ -100,7 +100,7 @@
 		65C9E2311962FB91001BD3EC /* AIGoJudge */ = {
 			isa = PBXGroup;
 			children = (
-				65BDD554196E62E500B3C1C2 /* FaceAgingWrapper.h */,
+				65C04332197009CD0070D6ED /* FaceAgingWrapper.h */,
 				651B72AD196E23E200F27121 /* FaceAging_iOS-Info.plist */,
 				651B72A7196E239000F27121 /* 1.jpg */,
 				651B72A8196E239000F27121 /* face2.tracker */,
@@ -155,7 +155,7 @@
 		8360CD5B1736684E00A0F806 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				65BDD54F196E591000B3C1C2 /* libCppWrapper_FaceAging.a */,
+				65BDD557196F7B5300B3C1C2 /* libCppWrapper_FaceAging.a */,
 				65C9E22F1962F97D001BD3EC /* Accelerate.framework */,
 				65C9E22D1962F96E001BD3EC /* QuartzCore.framework */,
 				65C9E22B1962F92A001BD3EC /* CoreImage.framework */,

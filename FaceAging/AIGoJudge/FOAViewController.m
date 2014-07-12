@@ -53,10 +53,11 @@
 {
     NSLog(@"segmentedButtonChanged to %ld",(long)self.segementedCtr.selectedSegmentIndex);
     //FaceAging testing code:
-    FaceAgingWrapper *faceAging = [[FaceAgingWrapper alloc] initWithImageName:@"1.jpg" andTrackModelName:@"face2.tracker" andTrainedModeleName:@"train.dat"];
-    [faceAging faceAging];
-    [faceAging findFace];
-    [faceAging vFace];
+    FaceAgingWrapper *faceAging = [[FaceAgingWrapper alloc] init];
+    //
+    [faceAging faceAging:@"1.jpg" andTrackModelName:@"face2.tracker" andAgingFaceOutputName:@"agingFace.png"];
+    [faceAging findFace:@"1.jpg" andTrackModelName:@"face2.tracker" andFindFaceOutputName:@"agingFace.png"];
+    [faceAging vFace:@"1.jpg" andTrackModelName:@"face2.tracker" andTrainedModeleName:@"train.dat" andvFaceOutputName:@"vFace.png"];
     /*
     char *imageName = nullptr;
     NSString * imageNameStr = @"1.jpg";

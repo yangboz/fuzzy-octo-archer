@@ -11,64 +11,79 @@
 
 @interface FaceAgingWrapper(){
     FaceAging * faceAging;
-    //
-    std::string imageNameStr;
-    std::string trackModelNameStr;
-    std::string trainedModeleNameStr;
-    char * imageNameChar;
-    char * trackModelNameChar;
-    char * trainedModeleNameChar;
-    //
-    char* findFaceOutputName;
-    char* agingFaceOutputName;
-    char* vFaceOutputName;
 }
 
 @end
 @implementation FaceAgingWrapper
 @synthesize _imageName,_trackModelName,_trainedModeleName;
 //
-- (id) initWithImageName:(NSString *) imageName andTrackModelName:(NSString *) trackModelName andTrainedModeleName:(NSString *) trainedModeleName
+-(id)init;
 {
     if (self = [super init]) {
-        self._imageName = imageName;
-        self._trackModelName = trackModelName;
-        self._trainedModeleName = trainedModeleName;
-        //
-        imageNameStr = std::string([imageName UTF8String]);
-        trackModelNameStr = std::string([trackModelName UTF8String]);
-        trainedModeleNameStr = std::string([trainedModeleName UTF8String]);
-        //
-        faceAging = new FaceAging(imageNameStr,trackModelNameStr,trainedModeleNameStr);
-        //
-        imageNameChar = (char*)imageNameStr.c_str();
-        trackModelNameChar = (char*)trackModelNameStr.c_str();
-        trainedModeleNameChar= (char*)trainedModeleNameStr.c_str();
-        //
-        findFaceOutputName = "foundFace.png";
-        agingFaceOutputName = "agingFace.png";
-        vFaceOutputName = "vFace.png";
+        //FaceAging
+        faceAging = new FaceAging();
     }
     return self;
 }
 //
--(void)faceAging
+-(void)faceAging:(NSString *) imageName andTrackModelName:(NSString *) trackModelName andAgingFaceOutputName:(NSString *) agingFaceOutputName
 {
-    NSLog(@"faceAging params,imageName:%s,trackModelName:%s,agingFaceOutputName:%s",imageNameChar, trackModelNameChar, agingFaceOutputName);
+    NSLog(@"faceAging params,imageName:%@,trackModelName:%@,agingFaceOutputName:%@",imageName, trackModelName, agingFaceOutputName);
+    //    char	*strncpy(char *, const char *, size_t);
+    ///imageNameChar
+    const char *const_imageNameChar = [imageName UTF8String];
+    char *imageNameChar = new char[strlen(const_imageNameChar)+1];
+    strcpy(imageNameChar, const_imageNameChar);
+    ///trackModelNameChar
+    const char *const_trackModelNameChar = [trackModelName UTF8String];
+    char *trackModelNameChar = new char[strlen(const_trackModelNameChar)];
+    strcpy(trackModelNameChar, const_trackModelNameChar);
+    ///agingFaceOutputNameChar
+    const char *const_agingFaceOutputNameChar = [agingFaceOutputName UTF8String];
+    char *agingFaceOutputNameChar = new char[strlen(const_agingFaceOutputNameChar)];
+    strcpy(agingFaceOutputNameChar, const_agingFaceOutputNameChar);
     //
-    faceAging->faceAging(imageNameChar, trackModelNameChar, agingFaceOutputName);
+    faceAging->faceAging(imageNameChar, trackModelNameChar, agingFaceOutputNameChar);
 }
--(void)findFace
+-(void)findFace:(NSString *) imageName andTrackModelName:(NSString *) trackModelName andFindFaceOutputName:(NSString *) findFaceOutputName
 {
-    NSLog(@"findFace params,imageName:%s,trackModelName:%s,findFaceOutputName:%s",imageNameChar, trackModelNameChar, findFaceOutputName);
+    NSLog(@"findFace params,imageName:%@,trackModelName:%@,findFaceOutputName:%@",imageName, trackModelName, findFaceOutputName);
+    ///imageNameChar
+    const char * const_imageNameChar = [imageName UTF8String];
+    char *imageNameChar = new char[strlen(const_imageNameChar)+1];
+    strcpy(imageNameChar, const_imageNameChar);
+    ///trackModelNameChar
+    const char * const_trackModelNameChar = [trackModelName UTF8String];
+    char * trackModelNameChar = new char[strlen(const_trackModelNameChar)+1];
+    strcpy(trackModelNameChar, const_trackModelNameChar);
+    //findFaceOutputNameChar
+    const char * const_findFaceOutputNameStr = [findFaceOutputName UTF8String];
+    char * findFaceOutputNameChar = new char[strlen(const_findFaceOutputNameStr)+1];
+    strcpy(findFaceOutputNameChar, const_findFaceOutputNameStr);
     //
-    faceAging->findFace(imageNameChar, trackModelNameChar, findFaceOutputName);
+    faceAging->findFace(imageNameChar, trackModelNameChar, findFaceOutputNameChar);
 }
--(void)vFace
+-(void)vFace:(NSString *) imageName andTrackModelName:(NSString *) trackModelName andTrainedModeleName:(NSString *) trainedModeleName andvFaceOutputName:(NSString *) vFaceOutputName
 {
-    NSLog(@"vFace params,imageName:%s,trackModelName:%s,trainedModeleName:%s,vFaceOutputName:%s",imageNameChar, trackModelNameChar, trainedModeleNameChar, vFaceOutputName);
+    NSLog(@"vFace params,imageName:%@,trackModelName:%@,trainedModeleName:%@,vFaceOutputName:%@",imageName, trackModelName, trainedModeleName, vFaceOutputName);
+    ///imageNameChar
+    const char * const_imageNameChar = [imageName UTF8String];
+    char *imageNameChar = new char[strlen(const_imageNameChar)+1];
+    strcpy(imageNameChar, const_imageNameChar);
+    ///trackModelNameChar
+    const char * const_trackModelNameChar = [trackModelName UTF8String];
+    char * trackModelNameChar = new char[strlen(const_trackModelNameChar)+1];
+    strcpy(trackModelNameChar, const_trackModelNameChar);
+    ///trainedModeleNameChar
+    const char * const_trainedModeleNameChar = [trainedModeleName UTF8String];
+    char * trainedModeleNameChar = new char[strlen(const_trainedModeleNameChar)+1];
+    strcpy(trainedModeleNameChar, const_trainedModeleNameChar);
+    ///vFaceOutputNameChar
+    const char * const_vFaceOutputNameChar  = [vFaceOutputName UTF8String];
+    char * vFaceOutputNameChar = new char[strlen(const_vFaceOutputNameChar)+1];
+    strcpy(vFaceOutputNameChar, const_vFaceOutputNameChar);
     //
-    faceAging->vFace(imageNameChar, trackModelNameChar, trainedModeleNameChar, vFaceOutputName);
+    faceAging->vFace(imageNameChar, trackModelNameChar, trainedModeleNameChar, vFaceOutputNameChar);
 }
 //
 @end

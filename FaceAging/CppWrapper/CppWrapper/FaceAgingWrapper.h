@@ -14,10 +14,10 @@
 @property (nonatomic, strong) NSString * _trackModelName;
 @property (nonatomic, strong) NSString * _trainedModeleName;
 //
--(id)initWithImageName:(NSString *) imageName andTrackModelName:(NSString *) trackModelName andTrainedModeleName:(NSString *) trainedModeleName;
+-(id)init;
 //
--(void)faceAging;
--(void)findFace;
--(void)vFace;
+-(void)faceAging:(NSString *) imageName andTrackModelName:(NSString *) trackModelName andAgingFaceOutputName:(NSString *) agingFaceOutputName;
+-(void)findFace:(NSString *) imageName andTrackModelName:(NSString *) trackModelName andFindFaceOutputName:(NSString *) findFaceOutputName;
+-(void)vFace:(NSString *) imageName andTrackModelName:(NSString *) trackModelName andTrainedModeleName:(NSString *) trainedModeleName andvFaceOutputName:(NSString *) vFaceOutputName;
 //
 @end

@@ -23,19 +23,11 @@ class FaceAging
 {
 public:								//constructor always have same name as class
 	//FaceAging();							//constructor with 0 input
-	FaceAging(
-              std::string _imageName,
-              std::string _trackModelName,
-              std::string _trainedModeleName
-              );
+	FaceAging();
     //
     bool faceAging(char* imageName, char* modelName, char* agingFaceOutName);
     bool findFace(char* imageName, char* modelName, char* findFaceOutName);
     bool vFace(char* imageName, char* modelName, char* trainModelName, char* vFaceOutName);
-    //
-    std::string imageName;
-    std::string trackModelName;
-    std::string trainedModeleName;
 private:
     //
     void Draw(cv::Mat &image,cv::Mat &shape, cv::Mat &visi);

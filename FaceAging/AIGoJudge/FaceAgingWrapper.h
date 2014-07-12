@@ -10,13 +10,14 @@
 
 @interface FaceAgingWrapper : NSObject
 //
-@property (nonatomic, strong) NSString * imageName;
-@property (nonatomic, strong) NSString * trackModelName;
-@property (nonatomic, strong) NSString * trainedModeleName;
+@property (nonatomic, strong) NSString * _imageName;
+@property (nonatomic, strong) NSString * _trackModelName;
+@property (nonatomic, strong) NSString * _trainedModeleName;
 //
--(void)faceAging;
--(void)findFace;
--(void)vFace;
+-(id)init;
 //
-- (id) initWithImageName:(NSString *) imageName andTrackModelName:(NSString *) trackModelName andTrainedModeleName:(NSString *) trainedModeleName;
+-(void)faceAging:(NSString *) imageName andTrackModelName:(NSString *) trackModelName andAgingFaceOutputName:(NSString *) agingFaceOutputName;
+-(void)findFace:(NSString *) imageName andTrackModelName:(NSString *) trackModelName andFindFaceOutputName:(NSString *) findFaceOutputName;
+-(void)vFace:(NSString *) imageName andTrackModelName:(NSString *) trackModelName andTrainedModeleName:(NSString *) trainedModeleName andvFaceOutputName:(NSString *) vFaceOutputName;
+//
 @end

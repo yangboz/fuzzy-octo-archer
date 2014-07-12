@@ -29,7 +29,10 @@ void Tracker::Init(CLM &clm,FDet &fdet,MFCheck &fcheck,
 //===========================================================================
 void Tracker::Load(const char* fname)
 {
-  ifstream s(fname); assert(s.is_open()); this->Read(s); s.close(); return;
+    ifstream s(fname);
+    assert(s.is_open());
+    this->Read(s); s.close();
+    return;
 }
 //===========================================================================
 void Tracker::Save(const char* fname)

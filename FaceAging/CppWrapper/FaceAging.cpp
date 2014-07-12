@@ -457,7 +457,10 @@ bool FaceAging::findFace(char* imageName, char* modelName, char* findFaceOutName
 
 bool FaceAging::faceAging(char* imageName, char* modelName, char* agingFaceOutName)
 {
-	std::vector<int> wSize2(3); wSize2[0] = 11; wSize2[1] = 9; wSize2[2] = 7;
+	std::vector<int> wSize2(3);
+    wSize2[0] = 11;
+    wSize2[1] = 9;
+    wSize2[2] = 7;
 	bool fcheck = false;
 	int fpd = -1;
 	int nIter = 5; double clamp=3,fTol=0.01;
@@ -544,15 +547,8 @@ bool FaceAging::faceAging(char* imageName, char* modelName, char* agingFaceOutNa
 	
 }
 
-FaceAging::FaceAging(
-                     std::string _imageName,
-                     std::string _trackModelName,
-                     std::string _trainedModeleName
-                     )
+FaceAging::FaceAging()
 {
-    imageName = _imageName;
-    trackModelName = _trackModelName;
-    trainedModeleName = _trainedModeleName;
     //
     /*
     char* __imageName = "1.jpg";
