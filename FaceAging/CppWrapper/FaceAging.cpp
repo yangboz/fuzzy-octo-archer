@@ -1,11 +1,3 @@
-//
-//  FaceAging.cpp
-//  CppWrapper_FaceAging
-//
-//  Created by yangboz on 14-7-10.
-//  Copyright (c) 2014年 GODPAPER. All rights reserved.
-//
-
 #include "FaceAging.h"
 
 #include "Tracker.h"
@@ -18,7 +10,7 @@ using namespace FACETRACKER;
 #define db at<double>
 #define SQR(x) x*x
 
-void FaceAging::Draw(cv::Mat &image,cv::Mat &shape, cv::Mat &visi)
+void Draw(cv::Mat &image,cv::Mat &shape, cv::Mat &visi)
 {
     int i,n = shape.rows/2; cv::Point p1,p2; cv::Scalar c;
     
@@ -39,7 +31,7 @@ void FaceAging::Draw(cv::Mat &image,cv::Mat &shape, cv::Mat &visi)
     return;
 }
 
-void FaceAging::Draw1(cv::Mat &image,cv::Mat &shape,cv::Mat &visi)
+void Draw1(cv::Mat &image,cv::Mat &shape,cv::Mat &visi)
 {
 	int i,n = shape.rows/2; cv::Point p1; cv::Scalar c;
 	char sss[256];
@@ -59,7 +51,7 @@ void FaceAging::Draw1(cv::Mat &image,cv::Mat &shape,cv::Mat &visi)
     
     return;
 }
-void FaceAging::faceShape(cv::Mat &shape, std::vector <Point2f>& faceOutline)
+void faceShape(cv::Mat &shape, std::vector <Point2f>& faceOutline)
 {
     int i,n = shape.rows/2;
     
@@ -75,7 +67,7 @@ void FaceAging::faceShape(cv::Mat &shape, std::vector <Point2f>& faceOutline)
     return;
 }
 
-void FaceAging::getTexture2(cv::Mat &shape, std::vector <Point2f>& texture2)
+void getTexture2(cv::Mat &shape, std::vector <Point2f>& texture2)
 {
 	int n = shape.rows/2;
     
@@ -89,7 +81,7 @@ void FaceAging::getTexture2(cv::Mat &shape, std::vector <Point2f>& texture2)
     return;
 }
 
-void FaceAging::getTexture3(cv::Mat &shape, std::vector <Point2f>& texture3)
+void getTexture3(cv::Mat &shape, std::vector <Point2f>& texture3)
 {
 	int n = shape.rows/2;
     
@@ -104,7 +96,7 @@ void FaceAging::getTexture3(cv::Mat &shape, std::vector <Point2f>& texture3)
 }
 
 
-void FaceAging::getTexture4(cv::Mat &shape, std::vector <Point2f>& texture4)
+void getTexture4(cv::Mat &shape, std::vector <Point2f>& texture4)
 {
 	int n = shape.rows/2;
 	cv::Point2f p1;
@@ -119,7 +111,7 @@ void FaceAging::getTexture4(cv::Mat &shape, std::vector <Point2f>& texture4)
     return;
 }
 
-void FaceAging::getTexture5(cv::Mat &shape, std::vector <Point2f>& texture5)
+void getTexture5(cv::Mat &shape, std::vector <Point2f>& texture5)
 {
 	int n = shape.rows/2;
     
@@ -133,7 +125,7 @@ void FaceAging::getTexture5(cv::Mat &shape, std::vector <Point2f>& texture5)
     return;
 }
 
-void FaceAging::getTexture6(cv::Mat &shape, std::vector <Point2f>& texture6)
+void getTexture6(cv::Mat &shape, std::vector <Point2f>& texture6)
 {
 	int n = shape.rows/2;
     
@@ -151,7 +143,7 @@ void FaceAging::getTexture6(cv::Mat &shape, std::vector <Point2f>& texture6)
     return;
 }
 
-void FaceAging::_CalcSimT(cv::Mat &src,cv::Mat &dst,
+void _CalcSimT(cv::Mat &src,cv::Mat &dst,
                double &a,double &b,double &tx,double &ty)
 {
     assert((src.type() == CV_64F) && (dst.type() == CV_64F) &&
@@ -178,7 +170,7 @@ void FaceAging::_CalcSimT(cv::Mat &src,cv::Mat &dst,
 }
 
 //=============================================================================
-void FaceAging::_SimT(cv::Mat &s,double a,double b,double tx,double ty)
+void _SimT(cv::Mat &s,double a,double b,double tx,double ty)
 {
     assert((s.type() == CV_64F) && (s.cols == 1));
     int i,n = s.rows/2; double x,y;
@@ -195,7 +187,7 @@ void FaceAging::_SimT(cv::Mat &s,double a,double b,double tx,double ty)
     return;
 }
 
-void FaceAging::Mat2WarpPoint(const cv::Mat& res, vector< cv::Point2i > &WarpPointV)
+void Mat2WarpPoint(const cv::Mat& res, vector< cv::Point2i > &WarpPointV)
 {
 	int nPoints = res.rows / 2;
 	if(WarpPointV.size() != nPoints)
@@ -207,7 +199,7 @@ void FaceAging::Mat2WarpPoint(const cv::Mat& res, vector< cv::Point2i > &WarpPoi
 	}
 }
 
-void FaceAging::_knn(cv::Mat& trainingData, cv::Mat& trainingClasses, cv::Mat& testData, int K, cv::Mat& newparam)
+void _knn(cv::Mat& trainingData, cv::Mat& trainingClasses, cv::Mat& testData, int K, cv::Mat& newparam)
 {
 	float** nn = new float *[testData.rows * K];
 	for(int i = 0; i < K; i++)
@@ -272,13 +264,13 @@ void FaceAging::_knn(cv::Mat& trainingData, cv::Mat& trainingClasses, cv::Mat& t
 }
 
 
-void FaceAging::getResult(Mat img, Mat newImg, bool bDeformPic, int imgWarpAlg, vector< cv::Point2i >& fittedPointV, vector< cv::Point2i >& newPV, char* vFaceOutName)
+void getResult(Mat img, Mat newImg, bool bDeformPic, int imgWarpAlg, vector< cv::Point2i >& fittedPointV, vector< cv::Point2i >& newPV, char* vFaceOutName)
 {
 	if (bDeformPic)
 	{
         // Actually warp image!
-        ImgWarp_MLS *warp;
-        if (imgWarpAlg==0)
+        ImgWarp_MLS *warp = nullptr;
+        if (imgWarpAlg == 0)
 		{
             warp = new ImgWarp_PieceWiseAffine;
             ((ImgWarp_PieceWiseAffine *) warp)->backGroundFillAlg = ImgWarp_PieceWiseAffine::BGMLS;
@@ -307,7 +299,7 @@ void FaceAging::getResult(Mat img, Mat newImg, bool bDeformPic, int imgWarpAlg, 
     }
 }
 
-bool FaceAging::vFace(char* imageName, char* modelName, char* trainModelName, char* vFaceOutName)
+bool vFace(char* imageName, char* modelName, char* trainModelName, char* vFaceOutName)
 {
 	
 	vector< cv::Point2i > fittedPointV;
@@ -330,9 +322,9 @@ bool FaceAging::vFace(char* imageName, char* modelName, char* trainModelName, ch
 	//cv::flip(im,im,1);
 	cv::cvtColor(im,gray,CV_BGR2GRAY);
 	cv::Mat shapeO;
-	
-	cv::Rect R;
-	if(model.Track(gray,wSize2,fpd,nIter,clamp,fTol,fcheck, R) == 0)
+	cv::Rect r;
+    
+	if(model.Track(gray,wSize2,fpd,nIter,clamp,fTol,fcheck,r) == 0)
 	{
         /*int idx = model._clm.GetViewIdx();
          Draw(im,model._shape,model._clm._visi[idx]); */
@@ -412,7 +404,7 @@ bool FaceAging::vFace(char* imageName, char* modelName, char* trainModelName, ch
 	
 }
 
-bool FaceAging::findFace(char* imageName, char* modelName, char* findFaceOutName)
+bool findFace(char* imageName, char* modelName, char* findFaceOutName)
 {
 	std::vector<int> wSize2(3); wSize2[0] = 11; wSize2[1] = 9; wSize2[2] = 7;
 	bool fcheck = false;
@@ -455,12 +447,9 @@ bool FaceAging::findFace(char* imageName, char* modelName, char* findFaceOutName
 	
 }
 
-bool FaceAging::faceAging(char* imageName, char* modelName, char* agingFaceOutName)
+bool faceAging(char* imageName, char* modelName, char* agingFaceOutName)
 {
-	std::vector<int> wSize2(3);
-    wSize2[0] = 11;
-    wSize2[1] = 9;
-    wSize2[2] = 7;
+	std::vector<int> wSize2(3); wSize2[0] = 11; wSize2[1] = 9; wSize2[2] = 7;
 	bool fcheck = false;
 	int fpd = -1;
 	int nIter = 5; double clamp=3,fTol=0.01;
@@ -543,25 +532,5 @@ bool FaceAging::faceAging(char* imageName, char* modelName, char* agingFaceOutNa
 		printf("cannot find face \n");
 		return false;
 	}
-	
-	
-}
-
-FaceAging::FaceAging()
-{
-    //
-    /*
-    char* __imageName = "1.jpg";
-    char* __trackModelName = "face2.tracker";
-    char* __trainedModeleName = "train.dat";
-    //
-    char* findFaceOutputName = "foundFace.png";
-    char* agingFaceOutputName = "agingFace.png";
-    char* vFaceOutputName = "vFace.png";
     
-    faceAging(__imageName, __trackModelName, agingFaceOutputName);
-    findFace(__imageName, __trackModelName, findFaceOutputName);
-    vFace(__imageName, __trackModelName, __trainedModeleName, vFaceOutputName);
-     */
 }
-

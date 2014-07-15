@@ -25,12 +25,13 @@
                                 </items>
                             </navigationBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yTn-nd-WaQ">
-                                <rect key="frame" x="298" y="91" width="173" height="29"/>
+                                <rect key="frame" x="260" y="92" width="315" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Should"/>
-                                    <segment title="Would"/>
-                                    <segment title="Could"/>
+                                    <segment title="findFace"/>
+                                    <segment title="vFace"/>
+                                    <segment title="FaceAging"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentedButtonChanged:" destination="2" eventType="valueChanged" id="xfk-Iz-Qtf"/>

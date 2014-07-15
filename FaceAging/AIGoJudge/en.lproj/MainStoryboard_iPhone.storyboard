@@ -35,12 +35,13 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6cG-ZA-LGY">
-                                <rect key="frame" x="86" y="103" width="146" height="29"/>
+                                <rect key="frame" x="3" y="104" width="315" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Should"/>
-                                    <segment title="Would"/>
-                                    <segment title="Could"/>
+                                    <segment title="FindFace"/>
+                                    <segment title="vFace"/>
+                                    <segment title="FaceAging"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentedButtonChanged:" destination="2" eventType="valueChanged" id="ecd-e2-7F2"/>
