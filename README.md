@@ -1,7 +1,7 @@
 fuzzy-octo-archer
 =================
 
-The input and output DEMO on auto aging face.
+The input and output DEMO on auto aging face:
 
 ![Screenshot of "Find Face"](https://raw.githubusercontent.com/yangboz/fuzzy-octo-archer/master/snapshots/DEMO_Find_face.png)
 
@@ -9,7 +9,11 @@ The input and output DEMO on auto aging face.
 
 ![Screenshot of "Aging Face"](https://raw.githubusercontent.com/yangboz/fuzzy-octo-archer/master/snapshots/DEMO_FaceAging.png)
 
-The input and output DEMO on AI Go judge.
+The input and output DEMO on AI Go judge:
+
+
+The input and output DEMO on VOSM(ASM/AAM+OpenCV+Boost):
+
 
 References
 =================
