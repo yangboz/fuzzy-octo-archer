@@ -1,0 +1,5 @@
+add_subdirectory(test_integraltransform)
+add_subdirectory(test_featureextraction)
+add_subdirectory(test_ensembletraining)
+add_subdirectory(test_smbuilding)
+add_subdirectory(test_smfitting)

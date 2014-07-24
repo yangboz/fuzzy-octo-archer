@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>362E5EE0-1448-4E4C-9685-7255D4DCBA5B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FaceAging_iOS</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>84CB2B91-E498-42C8-B944-449440471CBE</key>
+		<string>https://github.com/yangboz/fuzzy-octo-archer.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FaceAging/FaceAging_iOS.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>84CB2B91-E498-42C8-B944-449440471CBE</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/yangboz/fuzzy-octo-archer.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>84CB2B91-E498-42C8-B944-449440471CBE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>84CB2B91-E498-42C8-B944-449440471CBE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>fuzzy-octo-archer</string>
+		</dict>
+	</array>
+</dict>
+</plist>

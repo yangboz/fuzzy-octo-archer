@@ -1,0 +1,76 @@
+
+How to use vosm to 
+a) train a face model 
+b) fit an untrained face using the trained face model
+
+First of all, in order to use vosm, you need to find and download 
+respective ShapeInfo.txt files summarized in the table at 
+http://www.visionopen.com/resources/computer-vision/statistical-models/
+
+Secondly, you have to find and download or buy the standard
+annotated face databases by yourself.
+
+Help on two commands "test_smbuilding" and "test_smfitting".
+./test_smbuilding --help
+Usage: smbuilding [options] save_directory annotation_directory image_directory shapeinfo_path database channels type levels percentage 
+options: 
+   -o   output directory (default './') 
+   -a   annotation directory (required) 
+   -i   image directory (required) 
+   -s   path of the file shapeinfo (required) 
+   -d   training database (required, IMM, AGING, BIOID, XM2VTS, FRANCK, EMOUNT, JIAPEI ) 
+   -c   channels (1 or 3, default 3) 
+   -t   statistical model type (SM, TM, AM, IA, FM, SMLTC, SMNDPROFILE. default SMNDPROFILE ) 
+   -l   level of parymid (default 4) 
+   -p   percentage of shape, texture and appearance PCA (default 0.95) 
+Note: If you are building SMLTC or SMNDPROFILE, you must specify 
+ -c 1, namely, SMLTC and SMNDPROFILE can only deal with gray-level images. 
+
+
+
+./test_smfitting --help
+Usage: smfitting [options] trained_data type testing_images testing_annotations database staticORdynamic recording
+options: 
+   -o   trained data directory (required) 
+   -t   fitting method to be used (ASM_PROFILEND, ASM_LTC, AAM_BASIC, AAM_CMUICIA, AAM_IAIA. default ASM_PROFILEND ) 
+   -i   testing image directory containing at least one image (required) 
+   -a   testing annotation directory (can be ignored) 
+   -d   testing database -- if annotation directory is specified, database should also be specified for further evaluation on fitting performance (can be ignored) 
+   -s   static image sequence or dynamic image sequence (default value true) 
+   -r   recording the fitting results or not (default value false) 
+
+
+
+
+Examples are given as:
+
+1) For training:
+test_smbuilding -a "F:\Research\Databases\face\2D\EMOUNT\annotations\training" 
+-i "F:\Research\Databases\face\2D\EMOUNT\images\training" 
+-s "F:\Research\Databases\face\2D\EMOUNT\annotations\training\ShapeInfo.txt" 
+-d "EMOUNT"
+-c 1 
+-t "SMNDPROFILE"
+
+
+2) For testing:
+
+a) For static image database EMOUNT:
+test_smfitting -o "F:\Research\Databases\face\2D\EMOUNT\traineddata\60Frontal\BGR" 
+-t "ASM_PROFILEND" 
+-i "F:\Research\Databases\face\2D\EMOUNT\images\testing" 
+-s "true" 
+-r "true"
+
+b) For dynamic image database JIAPEI:
+test_smfitting -o "F:\Research\Databases\face\2D\JIAPEI\traineddata\33Frontal\BGR"
+-t "ASM_PROFILEND"
+-i "F:\Research\Databases\face\2D\JIAPEI\images\testing"
+-a "F:\Research\Databases\face\2D\JIAPEI\annotations\testing"
+-d "JIAPEI"
+-s "true"
+-r "true"
+
+
+
+

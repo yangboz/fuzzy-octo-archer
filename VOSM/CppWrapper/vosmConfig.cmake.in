@@ -1,0 +1,83 @@
+# ===================================================================================
+#  The VOSM CMake configuration file
+#
+#             ** File generated automatically, do not modify **
+#
+#  Usage from an external project: 
+#    In your CMakeLists.txt, add these lines:
+#
+#    FIND_PACKAGE(VOSM REQUIRED )
+#    TARGET_LINK_LIBRARIES(MY_TARGET_NAME ${VOSM_LIBS})   
+#
+#    This file will define the following variables:
+#      - VOSM_LIBS          : The list of libraries to links against.
+#      - VOSM_LIB_DIR       : The directory where lib files are. Calling LINK_DIRECTORIES
+#                                with this path is NOT needed.
+#      - VOSM_INCLUDE_DIRS  : The VOSM include directories.
+#      - VOSM_VERSION       : The  version of this VOSM build. Example: "1.2.0"
+#      - VOSM_VERSION_MAJOR : Major version part of VOSM_VERSION. Example: "1"
+#      - VOSM_VERSION_MINOR : Minor version part of VOSM_VERSION. Example: "2"
+#      - VOSM_VERSION_PATCH : Patch version part of VOSM_VERSION. Example: "0"
+#
+# ===================================================================================
+
+
+# Extract the directory where *this* file has been installed (determined at cmake run-time)
+#  This variable may or may not be used below, depending on the parsing of vosmConfig.cmake
+get_filename_component(THIS_VOSM_CONFIG_PATH "${CMAKE_CURRENT_LIST_FILE}" PATH)
+
+# ======================================================
+# Include directories to add to the user project:
+# ======================================================
+INCLUDE_DIRECTORIES(@CMAKE_INCLUDE_DIRS_CONFIGCMAKE@)
+# Provide the include directories to the caller
+SET(VOSM_INCLUDE_DIRS @CMAKE_INCLUDE_DIRS_CONFIGCMAKE@)
+
+# ======================================================
+# Link directories to add to the user project:
+# ======================================================
+LINK_DIRECTORIES("@CMAKE_LIB_DIRS_CONFIGCMAKE@")
+# Provide the libs directory anyway, it may be needed in some cases.
+SET(VOSM_LIB_DIR "@CMAKE_LIB_DIRS_CONFIGCMAKE@")
+
+# ====================================================================
+# Link libraries: e.g.   cxcore110.so, cv110.lib / cv110d.lib, etc...
+# ====================================================================
+set(VOSM_LIB_COMPONENTS cxcore cv ml highgui cvaux)
+SET(VOSM_LIBS "")
+foreach(__CVLIB ${VOSM_LIB_COMPONENTS})
+	# CMake>=2.6 supports the notation "debug XXd optimized XX"
+	if (CMAKE_MAJOR_VERSION GREATER 2  OR  CMAKE_MINOR_VERSION GREATER 4)
+		# Modern CMake:
+		SET(VOSM_LIBS ${VOSM_LIBS} debug ${__CVLIB}@VOSM_DLLVERSION@@VOSM_DEBUG_POSTFIX@ optimized ${__CVLIB}@VOSM_DLLVERSION@)
+	else(CMAKE_MAJOR_VERSION GREATER 2  OR  CMAKE_MINOR_VERSION GREATER 4)
+		# Old CMake:
+		SET(VOSM_LIBS ${VOSM_LIBS} ${__CVLIB}@VOSM_DLLVERSION@)
+	endif(CMAKE_MAJOR_VERSION GREATER 2  OR  CMAKE_MINOR_VERSION GREATER 4)
+endforeach(__CVLIB)
+
+# For VOSM built as static libs, we need the user to link against 
+#  many more dependencies:
+IF (NOT @VOSM_BUILD_SHARED_LIB@)
+	# Under static libs, the user of VOSM needs access to the 3rdparty libs as well:
+	LINK_DIRECTORIES("@CMAKE_BINARY_DIR@/3rdparty/lib")
+
+	SET(VOSM_LIBS 
+		@VOSM_LINKER_LIBS@ 
+		@IPP_LIBS@
+		@JPEG_LIBRARIES@ 
+		@PNG_LIBRARIES@ 
+		@TIFF_LIBRARIES@ 
+		@JASPER_LIBRARIES@ 
+		@HIGHGUI_LIBRARIES@ 
+		${VOSM_LIBS}) # The standard libs BEFORE (VOSM_LIBS) since these can have "debug","optimized".
+ENDIF(NOT @VOSM_BUILD_SHARED_LIB@)
+
+
+# ======================================================
+#  Version variables: 
+# ======================================================
+SET(VOSM_VERSION @VOSM_VERSION@)
+SET(VOSM_VERSION_MAJOR  @VOSM_VERSION_MAJOR@)
+SET(VOSM_VERSION_MINOR  @VOSM_VERSION_MINOR@)
+SET(VOSM_VERSION_PATCH  @VOSM_VERSION_PATCH@)

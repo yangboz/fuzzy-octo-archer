@@ -1,0 +1,13 @@
+# Package Information for pkg-config
+
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@/vosm
+
+Name: vosm
+Description: Vision Open Statistical Models
+Version: @VERSION@
+Libs: -L${libdir} -lcomalgs@VOSM_DLLVERSION@ -lcvcommon@VOSM_DLLVERSION@ -lensembletraining@VOSM_DLLVERSION@ -lfeatureextraction@VOSM_DLLVERSION@  -lintegraltransform@VOSM_DLLVERSION@ -lsmbuilding@VOSM_DLLVERSION@ 
+-lsmfitting@VOSM_DLLVERSION@ -lcommon@VOSM_DLLVERSION@ 
+Cflags: -I${includedir}

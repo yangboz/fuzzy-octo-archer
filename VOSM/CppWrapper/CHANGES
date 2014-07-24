@@ -1,0 +1,144 @@
+Release notes of VOSM.
+
+--------------------------- Release 0.3.3 --May, 2012--------------------
+Minor improvements are made in this version VOSM 0.3.3,
+in order to be compatible with OpenCV 2.4.0 above.
+
+1 General
+   - VOSM 0.3.3 is based upon:
+     
+      a) Boost (>= 1.48) for file and directory operations
+      b) OpenCV (2.4.0 or above)
+
+   - VOSM 0.3.3 has been successfully tested on Boost 1.48 and OpenCV 2.4.0,
+     both under Ubuntu 12.04 and Windows 7 Professional.
+
+   - Rename module "utils" in VOSM 0.3.2 to "common".
+
+   - Add the following line in front of file VO_ShapeModel.h
+          #include "opencv/cvaux.h"
+
+   - Don't forget to link opencv_legacy.lib when building modules or tests
+     based upon smbuilding.
+
+   - In module "comalgs", all file names have been changed to begin with "VO_".
+
+   - All files have been re-formated by the following 2 text rules
+     "tab  -- 8 spaces"
+     "insert tab with spaces"
+
+   - All testing files used to begin with "vo_", for instance "vo_smbuilding" 
+     are now renamed to begin with "test_".
+
+   - The reason why in the license, version "0.4" is used instead of "0.3.4"
+     is because version "0.4" is expected to be a major release.
+
+
+--------------------------- Release 0.3.2 --August, 2011--------------------
+Minor improvements are made in this version VOSM 0.3.2,
+in order to be compatible with OpenCV 2.3.0 above.
+
+1 General
+   - VOSM 0.3.2 is based upon:
+     
+      a) Boost (>= 1.42) for file and directory operations
+      b) OpenCV (subervsion R6267 or above)
+
+   - VOSM 0.3.2 has been successfully tested on Boost 1.42 and OpenCV subversion 6267,
+     on Ubuntu 11.04 and Windows 7 Professional.
+
+   - Two files, humandetectionalgs.h and humandetectionalgs.cpp have been
+     added to comalgs.
+
+   - All #include "cv.h"s now have been changed to #include "opencv/cv.h";
+     all #include "highgui.h"s now have been changed to #include "opencv/highgui.h";
+     all #include "cxcore.h"s now have been changed to #include "opencv/cxcore.h".
+
+   - INSTALL file has been changed to clarify how to install VOSM 0.3.2 .
+
+   - HOWTOUSE file is updated to clarify how to use VOSM's 2 key command lines .
+
+
+--------------------------- Release 0.3.1 --November, 2010--------------------
+Right after VOSM 0.3.0 was released on November 8, 2010,
+due to prompt feedbacks from some VOSM users,
+VOSM 0.3.1 is now released with the following improvements.
+
+1 General
+   - VOSM 0.3.1 is neither based on libgsl nor yaml-cpp any longer.
+     The only 3rd party libraries that VOSM 0.3.1 is based upon are
+     
+      a) Boost (>= 1.34.1) for file and directory operations
+      b) OpenCV (subervsion R3594 or above) as the basic but primary libraries 
+         that VOSM 0.3.1 is built upon
+
+   - A formal documentation is produced for reference
+
+   - Add brief descriptions for every class
+
+
+----------------------------- Release 0.3 --November, 2010--------------------
+
+It has been a long time for Vision Open to release its recent 
+research fruits related to ASM/AAMs.
+VOSM 0.3 offers a thoroughly fresh coding implementations, 
+and lots of improvements and new functionalities : 
+
+1 General
+
+  - Current VOSM can only be legally used under LGPL, namely,
+	Lesser General Public License.
+
+  - Current VOSM libraries requires CMake for configuration.
+
+  - Changes in the set of supported platforms:
+
+    - Fully supported by GNU g++ 4.5 and tested.
+
+    - Well supported by Microsoft Windows Visual Studio 
+	  C++ compiler 2008 (VC9). You may have to re-configure accordingly.
+
+  - Changes in the set of supported OpenCV:
+
+    - Must be OpenCV SVN R3594 or above 
+	  (OpenCV 2.1 is too old to be compile with current VOSM 0.3)
+
+2 Algorithms
+
+  - Current VOSM affords 2D Profile ASM, which is dramatically faster
+    than traditional 1D Profile ASM.
+
+  - Current VOSM proposes a conceptual novel idea named as
+    Active Feature Model.
+
+  - Current VOSM implements all popular ASMs/AAMs,
+    both for static images and dynamic videos, including:
+
+	- 1D profile ASM
+
+    - 2D profile ASM
+
+    - Direct Local texture contrained (LTC) ASM
+
+    - Basic AAM
+
+    - ICIA(Inverse compositional image alignment) AAM
+
+    - IAIA(Inverse additive image alignment) AAM
+
+----------------------------- Release 0.2 -- April, 2008----------------------
+
+Second release of "AAMBuilding":
+
+    - No source, but a xwWidget based GUI application 
+	  with some binary static libraries for model building.
+
+----------------------------- Release 0.1 -- February, 2007-------------------
+
+Initial release of "AAMBuilding", 
+
+  	- Contains only the model building code. 
+
+------------------------------------------------------------------------------
+
+

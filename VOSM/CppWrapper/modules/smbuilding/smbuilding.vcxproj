@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6B3E57CC-3CA2-4BD6-88D5-ED99990D8DDB}</ProjectGuid>
+    <RootNamespace>smbuilding</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>./include;../include;../common/include;../cvcommon/include;../featureextraction/include;../integraltransform/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="include\VO_AAMBasic.h" />
+    <ClInclude Include="include\VO_AAMForwardIA.h" />
+    <ClInclude Include="include\VO_AAMInverseIA.h" />
+    <ClInclude Include="include\VO_AFM.h" />
+    <ClInclude Include="include\VO_ASMLTCs.h" />
+    <ClInclude Include="include\VO_ASMNDProfiles.h" />
+    <ClInclude Include="include\VO_AXM.h" />
+    <ClInclude Include="include\VO_Edge.h" />
+    <ClInclude Include="include\VO_Ellipse.h" />
+    <ClInclude Include="include\VO_FacePart.h" />
+    <ClInclude Include="include\VO_FaceParts.h" />
+    <ClInclude Include="include\VO_FeatureModel.h" />
+    <ClInclude Include="include\VO_Point2DDistributionModel.h" />
+    <ClInclude Include="include\VO_Profile.h" />
+    <ClInclude Include="include\VO_Profiles.h" />
+    <ClInclude Include="include\VO_Shape.h" />
+    <ClInclude Include="include\VO_Shape2DInfo.h" />
+    <ClInclude Include="include\VO_ShapeFace.h" />
+    <ClInclude Include="include\VO_ShapeModel.h" />
+    <ClInclude Include="include\VO_Texture.h" />
+    <ClInclude Include="include\VO_TextureModel.h" />
+    <ClInclude Include="include\VO_Triangle2D.h" />
+    <ClInclude Include="include\VO_Triangle2DStructure.h" />
+    <ClInclude Include="include\VO_WarpingPoint.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\VO_AAMBasic.cpp" />
+    <ClCompile Include="src\VO_AAMForwardIA.cpp" />
+    <ClCompile Include="src\VO_AAMInverseIA.cpp" />
+    <ClCompile Include="src\VO_AFM.cpp" />
+    <ClCompile Include="src\VO_ASMLTCs.cpp" />
+    <ClCompile Include="src\VO_ASMNDProfiles.cpp" />
+    <ClCompile Include="src\VO_AXM.cpp" />
+    <ClCompile Include="src\VO_Edge.cpp" />
+    <ClCompile Include="src\VO_Ellipse.cpp" />
+    <ClCompile Include="src\VO_FacePart.cpp" />
+    <ClCompile Include="src\VO_FaceParts.cpp" />
+    <ClCompile Include="src\VO_FeatureModel.cpp" />
+    <ClCompile Include="src\VO_Point2DDistributionModel.cpp" />
+    <ClCompile Include="src\VO_Profile.cpp" />
+    <ClCompile Include="src\VO_Shape.cpp" />
+    <ClCompile Include="src\VO_Shape2DInfo.cpp" />
+    <ClCompile Include="src\VO_ShapeFace.cpp" />
+    <ClCompile Include="src\VO_ShapeModel.cpp" />
+    <ClCompile Include="src\VO_Texture.cpp" />
+    <ClCompile Include="src\VO_TextureModel.cpp" />
+    <ClCompile Include="src\VO_Triangle2DStructure.cpp" />
+    <ClCompile Include="src\VO_WarpingPoint.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

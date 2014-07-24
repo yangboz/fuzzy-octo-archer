@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LocalDebuggerCommandArguments>-o "C:\Users\pei\MyPrograms\C++\VS2010\vosm-0.3.2\Debug\EMOUNT" -t "ASM_PROFILEND" -i "F:\Research\Databases\face\2D\EMOUNT\images\testing" -a "F:\Research\Databases\face\2D\EMOUNT\annotations\testing" -d "EMOUNT" -s "true" -r "true"</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+</Project>

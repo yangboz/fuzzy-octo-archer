@@ -1,0 +1,21 @@
+README
+VOSM is the abbreviation of Vision Open Statistical Models 
+-------------------------------------------------------------------------------
+
+This distribution of VOSM includes:
+
+  AUTHORS               - current and former authors of VOSM
+  CHANGES               - history of changes for the library
+  CMakeLists.txt        - main script of the build system
+  COPYRIGHT             - describes the copyright of VOSM
+  doc/                  - documentations
+  HOWTOUSE              - how to use vosm
+  INSTALL               - information about the installation process 
+  README                - this file
+  TODO                  - what's to be done in future
+  VERSION               - version number of this release
+  modules/              - the source code for building the VOSM libraries
+  tests/                - the source code for building command line executives,
+                          such as test_smbuilding and test_smfitting, etc.
+
+-------------------------------------------------------------------------------
