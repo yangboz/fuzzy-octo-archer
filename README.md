@@ -12,7 +12,29 @@ The input and output DEMO on auto aging face:
 The input and output DEMO on AI Go judge:
 
 
-The input and output DEMO on VOSM(ASM/AAM+OpenCV+Boost):
+The input and output DEMO on FaceFeatures(ASM/AAM+OpenCV+Boost/CoreImage(iOS)):
+
+FaceFeatures:
+
+### iOS CoreImage related:
+
+#### CGRect bounds;
+
+#### BOOL hasLeftEyePosition;
+#### CGPoint leftEyePosition;
+#### BOOL hasRightEyePosition;
+#### CGPoint rightEyePosition;
+#### BOOL hasMouthPosition;
+#### CGPoint mouthPosition;
+#### BOOL hasTrackingID;
+#### int trackingID;
+#### BOOL hasTrackingFrameCount;
+#### int trackingFrameCount;
+#### BOOL hasFaceAngle;
+#### float faceAngle;
+#### BOOL hasSmile;
+#### BOOL leftEyeClosed;
+#### BOOL rightEyeClosed;
 
 
 References
