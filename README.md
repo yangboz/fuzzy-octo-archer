@@ -18,7 +18,17 @@ The input and output DEMO on VOSM(ASM/AAM+OpenCV+Boost):
 References
 =================
 
+OpenCV: http://opencv.org/
 
+FaceTracker: http://facetracker.net/
+
+FaceL: http://sourceforge.net/projects/pyvision/
+
+VOSM: http://sourceforge.net/projects/vosm
+
+ASM: http://code.google.com/p/asmlib-opencv/
+
+AAM: 
 
 ChessBoard: http://docs.opencv.org/doc/tutorials/calib3d/camera_calibration_square_chess/camera_calibration_square_chess.html
 
