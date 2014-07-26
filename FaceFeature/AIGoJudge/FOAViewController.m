@@ -100,6 +100,7 @@
     CGPoint leftEyePosition;
     CGPoint rightEyePosition;
     CGPoint mouthPosition;
+    UIImage *faceImage;
     //
     switch (self.segementedCtr.selectedSegmentIndex) {
         case 0:
@@ -120,24 +121,21 @@
                 //
                 faceRect.origin.y = self.photo.size.height - faceRect.origin.y - faceRect.size.height;
                 CGImageRef cgimg = CGImageCreateWithImageInRect(self.photo.CGImage, faceRect);
-                UIImage *image = [UIImage imageWithCGImage:cgimg];
+                faceImage = [UIImage imageWithCGImage:cgimg];
 
                 //Features set and draw
                 if(faceFeature.hasLeftEyePosition)
                 {
                     leftEyePosition = faceFeature.leftEyePosition;
+                    self.photo = [self drawWithCGPointOnImage:leftEyePosition onImage:faceImage];
                 }
                 if(faceFeature.hasRightEyePosition)
                 {
                     rightEyePosition = faceFeature.rightEyePosition;
-                    //
-                    [image drawAtPoint:rightEyePosition];
                 }
                 if(faceFeature.hasMouthPosition)
                 {
                     mouthPosition = faceFeature.mouthPosition;
-                    //
-                    [image drawAtPoint:mouthPosition];
                 }
                 // Write a UIImage to JPEG with minimum compression (best quality)
                 // The value 'image' must be a UIImage object
@@ -172,7 +170,8 @@
         }
     }
 //    self.photo = [[UIImage  alloc] initWithContentsOfFile:outputFilePath];
-    self.photo = [self drawWithCGPointOnImage:leftEyePosition onImage:self.photo];
+//    self.photo = [self drawWithCGPointOnImage:leftEyePosition onImage:self.photo];
+//    self.photo = [self drawWithCGPointOnImage:leftEyePosition onImage:faceImage];
     [self.photoButton setBackgroundImage:self.photo forState:UIControlStateNormal];
 }
 
@@ -253,20 +252,19 @@
 
 #pragma mark -Utility funcs
 - (UIImage *)drawWithCGPointOnImage:(CGPoint)point onImage:(UIImage *)image{
-    UIGraphicsBeginImageContext(image.size);
+    // Convert UIImage* to cv::Mat
+    UIImageToMat(self.photo, cvImage);
     //
-    [image drawAtPoint:point];
-    //
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(context, 1.0);
-    CGContextMoveToPoint(context, 0, point.y);
-    CGContextAddLineToPoint(context, 10, 10);
-    CGContextSetStrokeColorWithColor(context, [UIColor blueColor].CGColor);
-    CGContextStrokePath(context);
-    //create new image
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    //Tidy up
-    UIGraphicsEndImageContext();
+    NSData* data = UIImagePNGRepresentation(image);
+    // Decode image from the data buffer
+    cvImage = cv::imdecode(cv::Mat(1, [data length], CV_8UC3,(void*)data.bytes),CV_LOAD_IMAGE_UNCHANGED);
+//    assert(cvImage.empty());
+    // draw the circle center
+    cv::Point center(50,50);
+    // draw the circle outline
+    cv::circle( cvImage, center, 5, cv::Scalar(0,255,0), 1, 20, 0 );
+    // Convert cv::Mat to UIImage* and show the resulting image
+    UIImage *newImage = MatToUIImage(cvImage);
     //
     return newImage;
 }
