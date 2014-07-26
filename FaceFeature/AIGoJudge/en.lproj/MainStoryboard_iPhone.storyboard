@@ -24,7 +24,7 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Eu-7T-HjH">
-                                <rect key="frame" x="10" y="165" width="300" height="300"/>
+                                <rect key="frame" x="9" y="140" width="300" height="400"/>
                                 <state key="normal" title="PHOTO">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

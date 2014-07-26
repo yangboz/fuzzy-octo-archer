@@ -101,6 +101,7 @@
     CGPoint rightEyePosition;
     CGPoint mouthPosition;
     UIImage *faceImage;
+    CGRect faceRect;
     //
     switch (self.segementedCtr.selectedSegmentIndex) {
         case 0:
@@ -117,17 +118,24 @@
             faceDetector = [CIDetector detectorOfType:CIDetectorTypeFace context:nil options:detectorOptions];
             NSArray *features = [faceDetector featuresInImage:ciimg];
             for ( CIFaceFeature *faceFeature in features ) {
-                CGRect faceRect = [faceFeature bounds];
+                faceRect = [faceFeature bounds];
+                // value offeset calculate:
+                CGFloat wRatio = self.photo.size.width / 300;
+                CGFloat hRatio = self.photo.size.height /400;
                 //
                 faceRect.origin.y = self.photo.size.height - faceRect.origin.y - faceRect.size.height;
+                faceRect.origin.y /= wRatio;
+                faceRect.origin.x = self.photo.size.width - faceRect.origin.x - faceRect.size.width;
+                faceRect.origin.x /= hRatio;
+                //
                 CGImageRef cgimg = CGImageCreateWithImageInRect(self.photo.CGImage, faceRect);
                 faceImage = [UIImage imageWithCGImage:cgimg];
-
+                 //
+//                 CGFloat faceWidth = faceFeature.bounds.size.width;
                 //Features set and draw
                 if(faceFeature.hasLeftEyePosition)
                 {
                     leftEyePosition = faceFeature.leftEyePosition;
-                    self.photo = [self drawWithCGPointOnImage:leftEyePosition onImage:faceImage];
                 }
                 if(faceFeature.hasRightEyePosition)
                 {
@@ -170,7 +178,8 @@
         }
     }
 //    self.photo = [[UIImage  alloc] initWithContentsOfFile:outputFilePath];
-//    self.photo = [self drawWithCGPointOnImage:leftEyePosition onImage:self.photo];
+    self.photo = [self drawWithCGRectOnImage:faceRect onImage:self.photo];
+    self.photo = [self drawWithCGPointOnImage:leftEyePosition onImage:self.photo];
 //    self.photo = [self drawWithCGPointOnImage:leftEyePosition onImage:faceImage];
     [self.photoButton setBackgroundImage:self.photo forState:UIControlStateNormal];
 }
@@ -251,7 +260,7 @@
 
 
 #pragma mark -Utility funcs
-- (UIImage *)drawWithCGPointOnImage:(CGPoint)point onImage:(UIImage *)image{
+- (UIImage *)drawWithCGRectOnImage:(CGRect)rect onImage:(UIImage *)image{
     // Convert UIImage* to cv::Mat
     UIImageToMat(self.photo, cvImage);
     //
@@ -259,10 +268,32 @@
     // Decode image from the data buffer
     cvImage = cv::imdecode(cv::Mat(1, [data length], CV_8UC3,(void*)data.bytes),CV_LOAD_IMAGE_UNCHANGED);
 //    assert(cvImage.empty());
-    // draw the circle center
-    cv::Point center(50,50);
     // draw the circle outline
-    cv::circle( cvImage, center, 5, cv::Scalar(0,255,0), 1, 20, 0 );
+//    cv::circle( cvImage, center, rect.size.width, cv::Scalar(0,255,0), 1, 20, 0 );
+    cv::rectangle(cvImage, cvRect(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height), cv::Scalar(0,255,0));
+    // Convert cv::Mat to UIImage* and show the resulting image
+    UIImage *newImage = MatToUIImage(cvImage);
+    //
+    return newImage;
+}
+//
+- (UIImage *)drawWithCGPointOnImage:(CGPoint)point onImage:(UIImage *)image{
+    // Convert UIImage* to cv::Mat
+    UIImageToMat(self.photo, cvImage);
+    //
+    NSData* data = UIImagePNGRepresentation(image);
+    // Decode image from the data buffer
+    cvImage = cv::imdecode(cv::Mat(1, [data length], CV_8UC3,(void*)data.bytes),CV_LOAD_IMAGE_UNCHANGED);
+    //    assert(cvImage.empty());
+    // draw the circle center
+    // value offeset calculate:
+    //    CGFloat wRatio = self.photo.size.width / 300;
+    //    CGFloat hRatio = self.photo.size.height /400;
+    //    CGFloat xPos = point.x/wRatio;
+    //    CGFloat yPos = point.y/hRatio;
+    cv::Point center(point.x,point.y);
+    // draw the circle outline
+    cv::circle( cvImage, center, 20, cv::Scalar(0,255,0), 1, 20, 0 );
     // Convert cv::Mat to UIImage* and show the resulting image
     UIImage *newImage = MatToUIImage(cvImage);
     //
