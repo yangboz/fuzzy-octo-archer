@@ -56,4 +56,5 @@ ChessBoard: http://docs.opencv.org/doc/tutorials/calib3d/camera_calibration_squa
 
 FaceOSC is a tool for prototyping face-based interaction. It's built on non-commercial open source FaceTracker code from Jason Saragih. http://vimeo.com/26098366
 
+FlandMark: http://cmp.felk.cvut.cz/~uricamic/flandmark/ 
 
