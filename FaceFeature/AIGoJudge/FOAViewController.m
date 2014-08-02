@@ -136,6 +136,8 @@
                 if(faceFeature.hasLeftEyePosition)
                 {
                     leftEyePosition = faceFeature.leftEyePosition;
+                    //
+                    NSLog(@"Left eye %f %f", leftEyePosition.x, leftEyePosition.y);
                 }
                 if(faceFeature.hasRightEyePosition)
                 {
@@ -166,10 +168,10 @@
                 NSLog(@"Documents directory: %@", [fileMgr contentsOfDirectoryAtPath:documentsDirectory error:&error]);
             }
         }
-        break;
+        break;//OpenCV
         case 2:
         {
-
+            [self openCvOprWithImage:self.photo];
         }
         break;
         case 3:
@@ -296,6 +298,75 @@
     cv::circle( cvImage, center, 20, cv::Scalar(0,255,0), 1, 20, 0 );
     // Convert cv::Mat to UIImage* and show the resulting image
     UIImage *newImage = MatToUIImage(cvImage);
+    //
+    return newImage;
+}
+//
+- (UIImage *)openCvOprWithImage:(UIImage *)image{
+    //OpenCV related
+    std::vector<cv::Rect> faces;
+    cv::CascadeClassifier face_cascade;
+    // Convert UIImage* to cv::Mat
+    UIImageToMat(self.photo, cvImage);
+    //
+    NSData* data = UIImagePNGRepresentation(self.photo);
+    // Decode image from the data buffer
+    cvImage = cv::imdecode(cv::Mat(1, [data length], CV_8UC3,(void*)data.bytes),CV_LOAD_IMAGE_UNCHANGED);
+    //@see http://docs.opencv.org/doc/tutorials/objdetect/cascade_classifier/cascade_classifier.html
+    /** Global variables */
+    NSString *face_cascade_name = @"haarcascade_frontalface_alt_tree.xml";
+    //            NSString *eyes_cascade_name = @"data//haarcascades//haarcascade_eye.xml";
+    //            NSString *smile_cascade_name = @"data//haarcascades//haarcascade_smile.xml";
+    //
+    
+    cv::CascadeClassifier eyes_cascade;
+    cv::CascadeClassifier smile_cascade;
+    //-- 1. Load the cascades
+    if (!face_cascade.load((std::string)[face_cascade_name UTF8String])){ NSLog(@"face_cascade(!)Error loading\n"); };
+    //if (!eyes_cascade.load(eyes_cascade_name)){ CCLOG("eyes_cascade(!)Error loading\n"); return; };
+    //if (!smile_cascade.load(smile_cascade_name)){ CCLOG("smile_cascade(!)Error loading\n"); return; };
+//
+cv::cvtColor(cvImage, cvImageGray, CV_BGR2GRAY);
+cv::equalizeHist(cvImageGray, cvImageGray);
+//-- Detect faces
+face_cascade.detectMultiScale(cvImageGray, faces, 1.1, 2, 0 | CV_HAAR_SCALE_IMAGE, cv::Size(30, 30));
+
+for (size_t i = 0; i < faces.size(); i++)
+{
+    cv::Point center(faces[i].x + faces[i].width*0.8, faces[i].y + faces[i].height*0.8);
+    //ellipse(frame, center, cv::Size(faces[i].width*0.5, faces[i].height*0.5), 0, 0, 360, cv::Scalar(255, 0, 255), 4, 8, 0);
+    cv::rectangle(cvImageGray, cv::Rect(faces[i].x, faces[i].y, faces[i].width, faces[i].height), cv::Scalar(255, 0, 255));
+    
+    /*
+     Mat faceROI = frame_gray(faces[i]);
+     std::vector<cv::Rect> eyes;
+     
+     //-- In each face, detect eyes
+     eyes_cascade.detectMultiScale(faceROI, eyes, 1.1, 2, 0 | CV_HAAR_SCALE_IMAGE, cv::Size(30, 30));
+     
+     for (size_t j = 0; j < eyes.size(); j++)
+     {
+     cv::Point center(faces[i].x + eyes[j].x + eyes[j].width*0.5, faces[i].y + eyes[j].y + eyes[j].height*0.5);
+     int radius = cvRound((eyes[j].width + eyes[j].height)*0.25);
+     circle(frame, center, radius, cv::Scalar(255, 0, 0), 4, 8, 0);
+     }
+     
+     std::vector<cv::Rect> smiles;
+     
+     //-- In each face, detect smiles
+     smile_cascade.detectMultiScale(faceROI, smiles, 1.1, 2, 0 | CV_HAAR_SCALE_IMAGE, cv::Size(30, 30));
+     
+     for (size_t k = 0; k < smiles.size(); k++)
+     {
+     cv::Point center(faces[i].x + smiles[k].x + smiles[k].width*0.5, faces[i].y + smiles[k].y + smiles[k].height*0.5);
+     int radius = cvRound((smiles[k].width + smiles[k].height)*0.125);
+     //circle(frame, center, radius, cv::Scalar(255, 100, 0), 4, 8, 0);
+     cv::ellipse(frame, center, cv::Size(smiles[k].width*0.5, smiles[k].height*0.5), 0, 0, 360, cv::Scalar(255, 200, 0), 4, 8, 0);
+     }
+     */
+    }
+    // Convert cv::Mat to UIImage* and show the resulting image
+    UIImage *newImage = MatToUIImage(cvImageGray);
     //
     return newImage;
 }

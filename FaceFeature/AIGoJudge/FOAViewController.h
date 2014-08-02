@@ -12,6 +12,7 @@
 @interface FOAViewController : UIViewController <UIImagePickerControllerDelegate,UIActionSheetDelegate,UINavigationControllerDelegate>
 {
     cv::Mat cvImage;
+    cv::Mat cvImageGray;
 }
 //IBOutlets
 @property(nonatomic, retain) UIImage *photo;
