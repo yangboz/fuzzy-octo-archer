@@ -314,7 +314,7 @@
     cvImage = cv::imdecode(cv::Mat(1, [data length], CV_8UC3,(void*)data.bytes),CV_LOAD_IMAGE_UNCHANGED);
     //@see http://docs.opencv.org/doc/tutorials/objdetect/cascade_classifier/cascade_classifier.html
     /** Global variables */
-    NSString *face_cascade_name = @"haarcascade_frontalface_alt_tree.xml";
+    NSString *face_cascade_name = [[NSBundle mainBundle] pathForResource:@"haarcascade_frontalface_alt_tree" ofType:@"xml"];
     //            NSString *eyes_cascade_name = @"data//haarcascades//haarcascade_eye.xml";
     //            NSString *smile_cascade_name = @"data//haarcascades//haarcascade_smile.xml";
     //
