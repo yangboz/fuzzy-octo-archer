@@ -7,26 +7,12 @@ A Review on Feature Extraction Techniques as following:
 
 #### iOS CoreImage related:
 
-##### CGRect bounds;
-##### BOOL hasLeftEyePosition;
-##### CGPoint leftEyePosition;
-##### CGPoint rightEyePosition;
-##### BOOL hasMouthPosition;
-##### CGPoint mouthPosition;
-##### BOOL hasTrackingID;
-##### int trackingID;
-##### BOOL hasTrackingFrameCount;
-##### int trackingFrameCount;
-##### BOOL hasFaceAngle;
-##### float faceAngle;
-##### BOOL hasSmile;
-##### BOOL leftEyeClosed;
-##### BOOL rightEyeClosed;
+###### CGRect bounds;BOOL hasLeftEyePosition;CGPoint leftEyePosition;CGPoint rightEyePosition;BOOL hasMouthPosition;CGPoint mouthPosition;BOOL hasTrackingID;int trackingID;BOOL hasTrackingFrameCount;int trackingFrameCount;BOOL hasFaceAngle;float faceAngle;BOOL hasSmile;BOOL leftEyeClosed;BOOL rightEyeClosed;
 
 #### OpenCV HAAR related:
 
-#####haarcascade_frontalface_alt_tree.xml
-#####
+###### haarcascade_frontalface_alt_tree.xml
+######
 
 #### OpenCV LBP related:
 
