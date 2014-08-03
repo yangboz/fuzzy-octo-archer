@@ -1,40 +1,36 @@
 fuzzy-octo-archer
 =================
 
-The input and output DEMO on auto aging face:
+A Review on Feature Extraction Techniques as following:
 
-![Screenshot of "Find Face"](https://raw.githubusercontent.com/yangboz/fuzzy-octo-archer/master/snapshots/DEMO_Find_face.png)
+###Face Features in kind of techniques:
 
-![Screenshot of "Verify Face"](https://raw.githubusercontent.com/yangboz/fuzzy-octo-archer/master/snapshots/DEMO_vFace.png)
+#### iOS CoreImage related:
 
-![Screenshot of "Aging Face"](https://raw.githubusercontent.com/yangboz/fuzzy-octo-archer/master/snapshots/DEMO_FaceAging.png)
+##### CGRect bounds;
+##### BOOL hasLeftEyePosition;
+##### CGPoint leftEyePosition;
+##### CGPoint rightEyePosition;
+##### BOOL hasMouthPosition;
+##### CGPoint mouthPosition;
+##### BOOL hasTrackingID;
+##### int trackingID;
+##### BOOL hasTrackingFrameCount;
+##### int trackingFrameCount;
+##### BOOL hasFaceAngle;
+##### float faceAngle;
+##### BOOL hasSmile;
+##### BOOL leftEyeClosed;
+##### BOOL rightEyeClosed;
 
-The input and output DEMO on AI Go judge:
+#### OpenCV HAAR related:
+
+#####haarcascade_frontalface_alt_tree.xml
+#####
+
+#### OpenCV LBP related:
 
 
-The input and output DEMO on FaceFeatures(ASM/AAM+OpenCV+Boost/CoreImage(iOS)):
-
-FaceFeatures:
-
-### iOS CoreImage related:
-
-#### CGRect bounds;
-
-#### BOOL hasLeftEyePosition;
-#### CGPoint leftEyePosition;
-#### BOOL hasRightEyePosition;
-#### CGPoint rightEyePosition;
-#### BOOL hasMouthPosition;
-#### CGPoint mouthPosition;
-#### BOOL hasTrackingID;
-#### int trackingID;
-#### BOOL hasTrackingFrameCount;
-#### int trackingFrameCount;
-#### BOOL hasFaceAngle;
-#### float faceAngle;
-#### BOOL hasSmile;
-#### BOOL leftEyeClosed;
-#### BOOL rightEyeClosed;
 
 
 References
@@ -58,3 +54,16 @@ FaceOSC is a tool for prototyping face-based interaction. It's built on non-comm
 
 FlandMark: http://cmp.felk.cvut.cz/~uricamic/flandmark/ 
 
+###Demos
+
+####The input and output DEMO on auto aging face:
+
+![Screenshot of "Find Face"](https://raw.githubusercontent.com/yangboz/fuzzy-octo-archer/master/snapshots/DEMO_Find_face.png)
+
+![Screenshot of "Verify Face"](https://raw.githubusercontent.com/yangboz/fuzzy-octo-archer/master/snapshots/DEMO_vFace.png)
+
+![Screenshot of "Aging Face"](https://raw.githubusercontent.com/yangboz/fuzzy-octo-archer/master/snapshots/DEMO_FaceAging.png)
+
+####The input and output DEMO on AI Go judge:
+
+####The input and output DEMO on FaceFeatures(ASM/AAM+OpenCV+Boost/CoreImage(iOS)):
