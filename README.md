@@ -3,6 +3,10 @@ fuzzy-octo-archer
 
 A Review on Feature Extraction Techniques as following:
 
+###History:
+
+EigenFace->FisherFaces->HAAR/LBP(ChiSquareDistance/k-NN)->SVM->...
+
 ###Face Features in kind of techniques:
 
 #### iOS CoreImage related:
