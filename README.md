@@ -15,28 +15,34 @@ EigenFace->FisherFaces->HAAR/LBP(ChiSquareDistance/k-NN)->SVM->...
 
 #### OpenCV HAAR related:
 
-###### haarcascade_frontalface_alt_tree.xml
+###### haarcascade_frontalface_alt_tree.xml;
 ######
 
 #### OpenCV LBP related:
 
+Technical notes
+=================
 
+AAM and ASM usually used for finding facial feature points, and they need already defined face region. 
+
+Face Database
+=================
 
 
 References
 =================
 
-OpenCV: http://opencv.org/
+OpenCV: http://opencv.org/ Code: https://github.com/MasteringOpenCV
 
 FaceTracker: http://facetracker.net/
 
 FaceL: http://sourceforge.net/projects/pyvision/
 
-VOSM: http://sourceforge.net/projects/vosm
+VOSM: https://github.com/jiapei100/VOSM ; http://www.visionopen.com/downloads/open-source-software/vosm/
 
 ASM: http://code.google.com/p/asmlib-opencv/
 
-AAM: 
+AAM: https://github.com/jiapei100/VOSM
 
 ChessBoard: http://docs.opencv.org/doc/tutorials/calib3d/camera_calibration_square_chess/camera_calibration_square_chess.html
 
