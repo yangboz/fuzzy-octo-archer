@@ -171,7 +171,7 @@
         break;//OpenCV
         case 2:
         {
-            [self openCvOprWithImage:self.photo];
+            self.photo = [self openCvOprWithImage:self.photo];
         }
         break;
         case 3:
@@ -180,8 +180,8 @@
         }
     }
 //    self.photo = [[UIImage  alloc] initWithContentsOfFile:outputFilePath];
-    self.photo = [self drawWithCGRectOnImage:faceRect onImage:self.photo];
-    self.photo = [self drawWithCGPointOnImage:leftEyePosition onImage:self.photo];
+//    self.photo = [self drawWithCGRectOnImage:faceRect onImage:self.photo];
+//    self.photo = [self drawWithCGPointOnImage:leftEyePosition onImage:self.photo];
 //    self.photo = [self drawWithCGPointOnImage:leftEyePosition onImage:faceImage];
     [self.photoButton setBackgroundImage:self.photo forState:UIControlStateNormal];
 }
@@ -272,7 +272,7 @@
 //    assert(cvImage.empty());
     // draw the circle outline
 //    cv::circle( cvImage, center, rect.size.width, cv::Scalar(0,255,0), 1, 20, 0 );
-    cv::rectangle(cvImage, cvRect(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height), cv::Scalar(0,255,0));
+    cv::rectangle(cvImage, cvRect(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height), cv::Scalar(0,255,255));
     // Convert cv::Mat to UIImage* and show the resulting image
     UIImage *newImage = MatToUIImage(cvImage);
     //
@@ -315,16 +315,16 @@
     //@see http://docs.opencv.org/doc/tutorials/objdetect/cascade_classifier/cascade_classifier.html
     /** Global variables */
     NSString *face_cascade_name = [[NSBundle mainBundle] pathForResource:@"haarcascade_frontalface_alt_tree" ofType:@"xml"];
-    //            NSString *eyes_cascade_name = @"data//haarcascades//haarcascade_eye.xml";
-    //            NSString *smile_cascade_name = @"data//haarcascades//haarcascade_smile.xml";
+    NSString *eyes_cascade_name = [[NSBundle mainBundle] pathForResource:@"haarcascade_eye" ofType:@"xml"];
+    NSString *smile_cascade_name = [[NSBundle mainBundle] pathForResource:@"haarcascade_smile" ofType:@"xml"];
     //
     
     cv::CascadeClassifier eyes_cascade;
     cv::CascadeClassifier smile_cascade;
     //-- 1. Load the cascades
     if (!face_cascade.load((std::string)[face_cascade_name UTF8String])){ NSLog(@"face_cascade(!)Error loading\n"); };
-    //if (!eyes_cascade.load(eyes_cascade_name)){ CCLOG("eyes_cascade(!)Error loading\n"); return; };
-    //if (!smile_cascade.load(smile_cascade_name)){ CCLOG("smile_cascade(!)Error loading\n"); return; };
+    if (!eyes_cascade.load((std::string)[eyes_cascade_name UTF8String])){ NSLog(@"eyes_cascade(!)Error loading\n");  };
+    if (!smile_cascade.load((std::string)[smile_cascade_name UTF8String])){ NSLog(@"smile_cascade(!)Error loading\n");};
 //
 cv::cvtColor(cvImage, cvImageGray, CV_BGR2GRAY);
 cv::equalizeHist(cvImageGray, cvImageGray);
@@ -333,12 +333,12 @@ face_cascade.detectMultiScale(cvImageGray, faces, 1.1, 2, 0 | CV_HAAR_SCALE_IMAG
 
 for (size_t i = 0; i < faces.size(); i++)
 {
-    cv::Point center(faces[i].x + faces[i].width*0.8, faces[i].y + faces[i].height*0.8);
+    cv::Point center(faces[i].x + faces[i].width, faces[i].y + faces[i].height);
     //ellipse(frame, center, cv::Size(faces[i].width*0.5, faces[i].height*0.5), 0, 0, 360, cv::Scalar(255, 0, 255), 4, 8, 0);
-    cv::rectangle(cvImageGray, cv::Rect(faces[i].x, faces[i].y, faces[i].width, faces[i].height), cv::Scalar(255, 0, 255));
+    cv::rectangle(cvImage, cv::Rect(faces[i].x, faces[i].y, faces[i].width, faces[i].height), cv::Scalar(255, 0, 255));
     
-    /*
-     Mat faceROI = frame_gray(faces[i]);
+    //
+    cv::Mat faceROI = cvImageGray(faces[i]);
      std::vector<cv::Rect> eyes;
      
      //-- In each face, detect eyes
@@ -348,7 +348,7 @@ for (size_t i = 0; i < faces.size(); i++)
      {
      cv::Point center(faces[i].x + eyes[j].x + eyes[j].width*0.5, faces[i].y + eyes[j].y + eyes[j].height*0.5);
      int radius = cvRound((eyes[j].width + eyes[j].height)*0.25);
-     circle(frame, center, radius, cv::Scalar(255, 0, 0), 4, 8, 0);
+         cv::circle(cvImage, center, radius, cv::Scalar(255, 0, 0), 4, 8, 0);
      }
      
      std::vector<cv::Rect> smiles;
@@ -359,14 +359,14 @@ for (size_t i = 0; i < faces.size(); i++)
      for (size_t k = 0; k < smiles.size(); k++)
      {
      cv::Point center(faces[i].x + smiles[k].x + smiles[k].width*0.5, faces[i].y + smiles[k].y + smiles[k].height*0.5);
-     int radius = cvRound((smiles[k].width + smiles[k].height)*0.125);
+     //int radius = cvRound((smiles[k].width + smiles[k].height)*0.125);
      //circle(frame, center, radius, cv::Scalar(255, 100, 0), 4, 8, 0);
-     cv::ellipse(frame, center, cv::Size(smiles[k].width*0.5, smiles[k].height*0.5), 0, 0, 360, cv::Scalar(255, 200, 0), 4, 8, 0);
+     cv::ellipse(cvImage, center, cv::Size(smiles[k].width*0.5, smiles[k].height*0.5), 0, 0, 360, cv::Scalar(255, 200, 0), 4, 8, 0);
      }
-     */
+     
     }
     // Convert cv::Mat to UIImage* and show the resulting image
-    UIImage *newImage = MatToUIImage(cvImageGray);
+    UIImage *newImage = MatToUIImage(cvImage);
     //
     return newImage;
 }
