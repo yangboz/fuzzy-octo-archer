@@ -65,6 +65,8 @@ FlandMark: http://cmp.felk.cvut.cz/~uricamic/flandmark/
 
 ![Screenshot of "Aging Face"](https://raw.githubusercontent.com/yangboz/fuzzy-octo-archer/master/snapshots/DEMO_FaceAging.png)
 
-####The input and output DEMO on AI Go judge:
-
 ####The input and output DEMO on FaceFeatures(ASM/AAM+OpenCV+Boost/CoreImage(iOS)):
+
+![Screenshot of "Face Features"](https://raw.githubusercontent.com/yangboz/fuzzy-octo-archer/master/snapshots/DEMO_OpenCV_Face_features.png)
+
+####The input and output DEMO on AI Go judge:
