@@ -30,7 +30,15 @@ Technical notes
 
 AAM and ASM usually used for finding facial feature points, and they need already defined face region. 
 
-105 blocks with 4 histograms each and 9 bins per histogram there are 3,780 values.
+HOG: 105 blocks with 4 histograms each and 9 bins per histogram there are 3,780 values.
+
+The HOG+SVM following steps:
+
+###### 1) Prepare some training images of the objects you want to detect (positive samples). Also you will need to prepare some images with no objects of interest (negative samples).
+
+###### 2) Detect HOG features of the training sample and use this features to train an SVM classifier (also provided in OpenCV).
+
+###### 3) Use the coefficients of the trained SVM classifier in HOGDescriptor::setSVMDetector() method.
 
 Face Database
 =================
