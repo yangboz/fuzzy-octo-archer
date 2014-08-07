@@ -30,6 +30,8 @@ Technical notes
 
 AAM and ASM usually used for finding facial feature points, and they need already defined face region. 
 
+105 blocks with 4 histograms each and 9 bins per histogram there are 3,780 values.
+
 Face Database
 =================
 
