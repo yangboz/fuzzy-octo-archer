@@ -168,15 +168,15 @@
                 NSLog(@"Documents directory: %@", [fileMgr contentsOfDirectoryAtPath:documentsDirectory error:&error]);
             }
         }
-        break;//OpenCV
+        break;//OpenCV/haar
         case 2:
         {
-            self.photo = [self openCvOprWithImage:self.photo];
+            self.photo = [self openCvHaarOprWithImage:self.photo];
         }
-        break;
+        break;//OpenCV/hog
         case 3:
         {
-
+            self.photo = [self openCvHogOprWithImage:self.photo];
         }
     }
 //    self.photo = [[UIImage  alloc] initWithContentsOfFile:outputFilePath];
@@ -264,7 +264,7 @@
 #pragma mark -Utility funcs
 - (UIImage *)drawWithCGRectOnImage:(CGRect)rect onImage:(UIImage *)image{
     // Convert UIImage* to cv::Mat
-    UIImageToMat(self.photo, cvImage);
+    UIImageToMat(image, cvImage);
     //
     NSData* data = UIImagePNGRepresentation(image);
     // Decode image from the data buffer
@@ -281,7 +281,7 @@
 //
 - (UIImage *)drawWithCGPointOnImage:(CGPoint)point onImage:(UIImage *)image{
     // Convert UIImage* to cv::Mat
-    UIImageToMat(self.photo, cvImage);
+    UIImageToMat(image, cvImage);
     //
     NSData* data = UIImagePNGRepresentation(image);
     // Decode image from the data buffer
@@ -302,12 +302,12 @@
     return newImage;
 }
 //
-- (UIImage *)openCvOprWithImage:(UIImage *)image{
+- (UIImage *)openCvHaarOprWithImage:(UIImage *)image{
     //OpenCV related
     std::vector<cv::Rect> faces;
     cv::CascadeClassifier face_cascade;
     // Convert UIImage* to cv::Mat
-    UIImageToMat(self.photo, cvImage);
+    UIImageToMat(image, cvImage);
     //
     NSData* data = UIImagePNGRepresentation(self.photo);
     // Decode image from the data buffer
@@ -364,6 +364,41 @@ for (size_t i = 0; i < faces.size(); i++)
      cv::ellipse(cvImage, center, cv::Size(smiles[k].width*0.5, smiles[k].height*0.5), 0, 0, 360, cv::Scalar(255, 200, 0), 4, 8, 0);
      }
      
+    }
+    // Convert cv::Mat to UIImage* and show the resulting image
+    UIImage *newImage = MatToUIImage(cvImage);
+    //
+    return newImage;
+}
+//
+- (UIImage *)openCvHogOprWithImage:(UIImage *)image{
+    //
+    cv::CascadeClassifier cascade_gpu(...);
+    // Convert UIImage* to cv::Mat
+    UIImageToMat(image, cvImage);
+    //
+    NSData* data = UIImagePNGRepresentation(self.photo);
+    // Decode image from the data buffer
+    cvImage = cv::imdecode(cv::Mat(1, [data length], CV_8UC3,(void*)data.bytes),CV_LOAD_IMAGE_UNCHANGED);
+    //HOG
+    cv::HOGDescriptor *hog = new cv::HOGDescriptor(cv::Size(3,3),cv::Size(3,3),cv::Size(5,10),cv::Size(3,3),9);
+    cv::vector<float>descriptors;
+    hog->compute(cvImage, descriptors);
+    NSLog(@"HOG descriptors:%ld",descriptors.size());
+    //Pedestrain detect
+    CV_OUT cv::vector<cv::Rect> founds;
+    cv::vector<cv::DetectionROI> locations;
+    cv::HOGDescriptor defaultHog;
+    defaultHog.setSVMDetector(cv::HOGDescriptor::getDefaultPeopleDetector());
+    //
+//    defaultHog.detectMultiScale(cvImage, founds);
+//    defaultHog.detectMultiScaleROI(cvImage, founds, locations);
+    defaultHog.detectMultiScale(cvImage, founds);
+    //
+    for(int i = 0; i < founds.size(); i++)
+    {
+        cv::Rect r = founds[i];
+        cv::rectangle(cvImage, r.tl(), r.br(), cvScalar(0, 0, 255), 3);
     }
     // Convert cv::Mat to UIImage* and show the resulting image
     UIImage *newImage = MatToUIImage(cvImage);
