@@ -1,0 +1,1 @@
+locByTracking 4.bmp
