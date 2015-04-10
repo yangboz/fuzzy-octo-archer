@@ -66,7 +66,8 @@
     // Convert UIImage* to cv::Mat
     UIImageToMat(self.photo, cvImage);
     NSData* data = UIImagePNGRepresentation(self.photo);
-    NSLog(@"NSData length(before compression):%lu",(unsigned long)[data length]);
+    unsigned long oriLen = (unsigned long)[data length];
+    NSLog(@"NSData length(before compression):%lu",oriLen);
 #warning in
     // Decode image from the data buffer
     //@see: http://ninghang.blogspot.sg/2012/11/list-of-mat-type-in-opencv.html
@@ -86,25 +87,36 @@
     //
     switch (self.segementedCtr.selectedSegmentIndex) {
         case 0:
-            //Empty handler
+            [self.photoButton setTitle:@"Photo" forState:UIControlStateNormal];
             break;
         case 1://JPG
         {
+            [self.photoButton setTitle:[NSString stringWithFormat:@"%ld",oriLen] forState:UIControlStateNormal];
+            //
             std::vector<int> params;
             params.push_back(CV_IMWRITE_JPEG_QUALITY);
-            params.push_back(50);   // that's percent, so 100 == no compression, 1 == full
+            params.push_back(10);   // that's percent, so 100 == no compression, 1 == full
 //            params.push_back(0);
             //
             NSString *imgFilePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"savedImage.jpg"]];
             const char* cPath = [imgFilePath cStringUsingEncoding:NSMacOSRomanStringEncoding];
+            //length
+            unsigned long length = [[NSData dataWithContentsOfFile:imgFilePath] length];
+            char buffer[1000];
+            int bufferlength = sprintf(buffer, "JPG:%lu",length);
+            //
             const cv::string newPaths = (const cv::string)cPath;
+            cv::putText(cvImage, buffer, cvPoint(50, 50), cv::FONT_ITALIC, 2, cv::Scalar::all(255),3,8);
             cv::imwrite(newPaths, cvImage);
+            buffer[bufferlength]=0;//clear
 //            [self saveImage:self.photo imageType:@"jpg"];
-            NSLog(@"NSData length(after compression):%ld",cvImage.size);
+            NSLog(@"NSData length(JPG compression):%lu",length);
         }
         break;
         case 2://PNG
         {
+            [self.photoButton setTitle:[NSString stringWithFormat:@"%ld",oriLen] forState:UIControlStateNormal];
+            //
             std::vector<int> params;
             params.push_back(CV_IMWRITE_PNG_COMPRESSION);
             params.push_back(9);   // that's compression level, 9 == full , 0 == none
@@ -115,17 +127,23 @@
             //
             NSString *imgFilePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"savedImage.png"]];
             const char* cPath = [imgFilePath cStringUsingEncoding:NSMacOSRomanStringEncoding];
+            unsigned long length = [[NSData dataWithContentsOfFile:imgFilePath] length];
+            char buffer[1000];
+            int bufferlength = sprintf(buffer, "PNG:%lu",length);
             const cv::string newPaths = (const cv::string)cPath;
+            cv::putText(cvImage, buffer, cvPoint(50, 50), cv::FONT_ITALIC, 2, cv::Scalar::all(255),3,8);
             cv::imwrite(newPaths, cvImage);
-            NSLog(@"NSData length(after compression):%lu",(unsigned long)[[NSData dataWithContentsOfFile:imgFilePath] length]);
+            buffer[bufferlength]=0;//clear
+            NSLog(@"NSData length(PNG compression):%lu",(unsigned long)[[NSData dataWithContentsOfFile:imgFilePath] length]);
 #warning out
 //            [self saveImage:self.photo imageType:@"png"];
         }
         break;
     }
     // Convert cv::Mat to UIImage* and show the resulting image
-    self.photo = MatToUIImage(cvImage);
-    [self.photoButton setBackgroundImage:self.photo forState:UIControlStateNormal];
+    UIImage *anewImage = MatToUIImage(cvImage);
+//    self.photo = MatToUIImage(cvImage);
+    [self.photoButton setBackgroundImage:anewImage forState:UIControlStateNormal];
 }
 
 - (IBAction)choosePhoto:(id)sender

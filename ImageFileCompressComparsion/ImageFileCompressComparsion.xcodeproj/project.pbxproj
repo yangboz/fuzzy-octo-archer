@@ -183,6 +183,11 @@
 			attributes = {
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Alexander Shishkov & Kirill Kornyakov";
+				TargetAttributes = {
+					8360CD571736684D00A0F806 = {
+						DevelopmentTeam = 63X9SGW3ZX;
+					};
+				};
 			};
 			buildConfigurationList = 8360CD521736684D00A0F806 /* Build configuration list for PBXProject "ImageFileCompressComparsion" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -285,7 +290,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -307,7 +312,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -318,6 +323,7 @@
 		8360CD801736684E00A0F806 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/..\"",
@@ -327,6 +333,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AIGoJudge/ImageFileCompressComparsion-Prefix.pch";
 				INFOPLIST_FILE = "AIGoJudge/ImageFileCompressComparsion-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = ImageFileCompressComparsion;
 				WRAPPER_EXTENSION = app;
 			};
@@ -335,6 +342,7 @@
 		8360CD811736684E00A0F806 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/..\"",
@@ -344,6 +352,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AIGoJudge/ImageFileCompressComparsion-Prefix.pch";
 				INFOPLIST_FILE = "AIGoJudge/ImageFileCompressComparsion-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = ImageFileCompressComparsion;
 				WRAPPER_EXTENSION = app;
 			};
