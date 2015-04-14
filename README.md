@@ -65,6 +65,12 @@ FaceOSC is a tool for prototyping face-based interaction. It's built on non-comm
 
 FlandMark: http://cmp.felk.cvut.cz/~uricamic/flandmark/ 
 
+###OpenCV with XCode
+
+http://rickytsao.com/?p=273
+
+###Objective-C bridge for C++/C
+
 ###Demos
 
 ####The input and output DEMO on auto aging face:
