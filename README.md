@@ -71,6 +71,10 @@ http://rickytsao.com/?p=273
 
 ###Objective-C bridge for C++/C
 
+###Build fat static library both of device and simulator
+
+http://stackoverflow.com/questions/3520977/build-fat-static-library-device-simulator-using-xcode-and-sdk-4
+
 ###Demos
 
 ####The input and output DEMO on auto aging face:
