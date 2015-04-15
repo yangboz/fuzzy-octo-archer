@@ -69,6 +69,8 @@ FlandMark: http://cmp.felk.cvut.cz/~uricamic/flandmark/
 
 http://rickytsao.com/?p=273
 
+http://blogs.wcode.org/2014/11/howto-setup-xcode-6-1-to-work-with-opencv-libraries/
+
 ###Objective-C bridge for C++/C
 
 ###Build fat static library both of device and simulator
