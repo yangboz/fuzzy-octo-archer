@@ -183,6 +183,11 @@
 			attributes = {
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Alexander Shishkov & Kirill Kornyakov";
+				TargetAttributes = {
+					8360CD571736684D00A0F806 = {
+						DevelopmentTeam = 63X9SGW3ZX;
+					};
+				};
 			};
 			buildConfigurationList = 8360CD521736684D00A0F806 /* Build configuration list for PBXProject "KoreanOCR" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -318,6 +323,7 @@
 		8360CD801736684E00A0F806 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/..\"",
@@ -335,6 +341,7 @@
 		8360CD811736684E00A0F806 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/..\"",
