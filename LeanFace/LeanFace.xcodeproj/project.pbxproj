@@ -181,6 +181,7 @@
 		65032F4B1BBD9424000CC965 /* agingFace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = agingFace.png; sourceTree = "<group>"; };
 		65032F4C1BBD9424000CC965 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		65032F591BBD95C6000CC965 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		65032F5D1BC8128B000CC965 /* LeanFace.thrift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LeanFace.thrift; path = Thrift/LeanFace.thrift; sourceTree = "<group>"; };
 		65BE0ECB1BBD91410039E2D5 /* LeanFace */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LeanFace; sourceTree = BUILT_PRODUCTS_DIR; };
 		65BE0ECE1BBD91420039E2D5 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -447,9 +448,18 @@
 			path = world;
 			sourceTree = "<group>";
 		};
+		65032F5C1BC81252000CC965 /* Thrift */ = {
+			isa = PBXGroup;
+			children = (
+				65032F5D1BC8128B000CC965 /* LeanFace.thrift */,
+			);
+			name = Thrift;
+			sourceTree = "<group>";
+		};
 		65BE0EC21BBD91410039E2D5 = {
 			isa = PBXGroup;
 			children = (
+				65032F5C1BC81252000CC965 /* Thrift */,
 				65032F591BBD95C6000CC965 /* opencv2.framework */,
 				65BE0ECD1BBD91420039E2D5 /* LeanFace */,
 				65BE0ECC1BBD91410039E2D5 /* Products */,
