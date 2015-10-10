@@ -13,6 +13,8 @@ Java(Spring-boot):
 
 Issues:
 ===============
-https://issues.apache.org/jira/browse/THRIFT-243
+Thrift related: https://issues.apache.org/jira/browse/THRIFT-243
 
-http://stackoverflow.com/questions/10778905/why-not-gnu-bison-upgrade-to-2-5-on-macosx-10-7-3
+Bison related: http://stackoverflow.com/questions/10778905/why-not-gnu-bison-upgrade-to-2-5-on-macosx-10-7-3
+
+OpenSSL related: http://stackoverflow.com/questions/15185661/openssl-version-macosx-homebrew
