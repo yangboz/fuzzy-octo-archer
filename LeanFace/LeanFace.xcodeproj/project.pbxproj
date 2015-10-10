@@ -185,6 +185,7 @@
 		65032F5D1BC8128B000CC965 /* LeanFace.thrift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LeanFace.thrift; path = Thrift/LeanFace.thrift; sourceTree = "<group>"; };
 		65032F5E1BC89BFA000CC965 /* LeanFaceService.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LeanFaceService.cpp; sourceTree = "<group>"; };
 		65032F601BC89ECF000CC965 /* gen-cpp */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "gen-cpp"; path = "Thrift/gen-cpp"; sourceTree = "<group>"; };
+		65032F631BC8F40C000CC965 /* thrift-cpp */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "thrift-cpp"; path = "Thrift/thrift-cpp"; sourceTree = "<group>"; };
 		65BE0ECB1BBD91410039E2D5 /* LeanFace */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LeanFace; sourceTree = BUILT_PRODUCTS_DIR; };
 		65BE0ECE1BBD91420039E2D5 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = LeanFace/main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -462,6 +463,7 @@
 		65BE0EC21BBD91410039E2D5 = {
 			isa = PBXGroup;
 			children = (
+				65032F631BC8F40C000CC965 /* thrift-cpp */,
 				65032F601BC89ECF000CC965 /* gen-cpp */,
 				65032F5E1BC89BFA000CC965 /* LeanFaceService.cpp */,
 				65BE0ECE1BBD91420039E2D5 /* main.cpp */,

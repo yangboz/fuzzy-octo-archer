@@ -7,7 +7,8 @@
 #ifndef LeanFaceService_H
 #define LeanFaceService_H
 
-#include <thrift/TDispatchProcessor.h>
+//#include <thrift/TDispatchProcessor.h>
+#include "../thrift-cpp/TDispatchProcessor.h"
 #include "LeanFace_types.h"
 
 namespace leanface {
